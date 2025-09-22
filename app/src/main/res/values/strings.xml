@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MobileApp</string>
+    <string name="drive_next">DriveNext</string>
+    <string name="description">Поможем найти твою следующую поездку</string>
 </resources>
