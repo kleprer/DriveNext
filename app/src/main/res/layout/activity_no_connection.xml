@@ -48,19 +48,22 @@
 
     </LinearLayout>
 
-    <Button
+    <android.widget.Button
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:backgroundTint="#2A1246"
+        android:background="@drawable/shape_button_footer"
         android:paddingStart="32dp"
         android:paddingTop="14dp"
         android:paddingEnd="32dp"
         android:paddingBottom="14dp"
         android:layout_marginBottom="32dp"
         android:text="@string/try_again"
+        android:textColor="@color/white"
         android:fontFamily="@font/montserrat_regular"
         android:textSize="14sp"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
