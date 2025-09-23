@@ -11,4 +11,6 @@
     <string name="boarding_description">Открой для себя удобный и доступный способ передвижения</string>
     <string name="next">Далее</string>
     <string name="tab_selector_description">Переключатель вкладок</string>
+    <string name="log_in">Войти</string>
+    <string name="sign_up">Зарегистрироваться</string>
 </resources>

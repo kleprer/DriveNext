@@ -39,4 +39,38 @@
         android:src="@drawable/ic_splash"
         android:background="android:color/transparent"
         />
+
+    <android.widget.Button
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#2A1246"
+        android:background="@drawable/shape_button_footer"
+        android:paddingStart="32dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="32dp"
+        android:paddingBottom="14dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/log_in"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="14sp"
+        android:textAllCaps="false" />
+
+    <android.widget.Button
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_button_blank_cornered"
+        android:paddingStart="32dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="32dp"
+        android:paddingBottom="14dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/sign_up"
+        android:textColor="#344054"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="14sp"
+        android:textAllCaps="false" />
+
 </LinearLayout>
