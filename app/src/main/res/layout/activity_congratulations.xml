@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+              >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="318dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="202dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="android:color/transparent"
+            android:contentDescription="Иконка галочки"
+            android:src="@drawable/ic_success" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:layout_gravity="center"
+            android:lineSpacingExtra="24dp"
+            android:textColor="@color/second_primary"
+            android:text="@string/congratulations"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center"
+            android:textColor="@color/second_primary"
+            android:text="Вы успешно зарегистрировались. Обработка ваших персональных данных займет около двух часов. Спасибо за ожидание."
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+    <android.widget.Button
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#2A1246"
+        android:background="@drawable/shape_button_footer"
+        android:paddingStart="32dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="32dp"
+        android:paddingBottom="14dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="14sp"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
