@@ -27,4 +27,15 @@
     <string name="create_password">Придумайте пароль</string>
     <string name="repeat_password">Повторите пароль</string>
     <string name="accept_terms">Я согласен с условиями обслуживания и политикой конфиденциальности</string>
+    <string name="enter_middle_name">Введите отчество</string>
+    <string name="birthday">Дата рождения</string>
+    <string name="birthday_format">DD/MM/YYYY</string>
+    <string name="middle_name">Отчество</string>
+    <string name="enter_first_name">Введите имя</string>
+    <string name="name">Имя</string>
+    <string name="enter_last_name">Введите фамилию</string>
+    <string name="last_name">Фамилия</string>
+    <string name="gender">Пол</string>
+    <string name="male">Мужской</string>
+    <string name="female">Женский</string>
 </resources>

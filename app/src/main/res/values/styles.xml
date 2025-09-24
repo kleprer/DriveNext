@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
+    <style name="CompactRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:buttonTint">@color/new_gray</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 
 </resources>
