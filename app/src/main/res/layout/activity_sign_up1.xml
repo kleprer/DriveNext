@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+         android:orientation="vertical"
+         android:layout_width="342dp"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" >
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="68dp"
+            android:background="android:color/transparent"
+            android:src="@drawable/ic_back_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="@string/create_account"
+            android:textColor="@color/second_primary"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_gravity="start"
+        android:layout_marginTop="87dp"
+        android:text="@string/email"
+        android:textColor="#404040"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:minHeight="48dp"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_button_blank_cornered"
+        android:paddingStart="14dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/enter_email"
+        android:textColor="#667085"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="14sp"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_gravity="start"
+        android:layout_marginTop="16dp"
+        android:text="@string/create_password"
+        android:textColor="#404040"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:minHeight="48dp"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_button_blank_cornered"
+        android:paddingStart="14dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/enter_password"
+        android:textColor="#667085"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="14sp"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_gravity="start"
+        android:layout_marginTop="16dp"
+        android:text="@string/repeat_password"
+        android:textColor="#404040"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:minHeight="48dp"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_button_blank_cornered"
+        android:paddingStart="14dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/enter_password"
+        android:textColor="#667085"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="14sp"
+        android:textAllCaps="false" />
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/accept_terms"
+        android:textColor="@color/second_primary"
+        android:textSize="12sp"
+        android:minHeight="48dp"
+        android:layout_marginTop="32dp"
+        android:buttonTint="@color/new_gray"
+
+        />
+
+    <android.widget.Button
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#2A1246"
+        android:background="@drawable/shape_button_footer"
+        android:paddingStart="32dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="32dp"
+        android:paddingBottom="14dp"
+        android:layout_marginTop="249dp"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="14sp"
+        android:textAllCaps="false" />
+
+</LinearLayout>

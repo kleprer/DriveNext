@@ -14,4 +14,17 @@
     <string name="log_in">Войти</string>
     <string name="sign_up">Зарегистрироваться</string>
     <string name="congratulations">Поздравляем</string>
+    <string name="log_into_account">Войдите в аккаунт</string>
+    <string name="login_description">Пожалуйста, введите свои данные</string>
+    <string name="email">Электронная почта</string>
+    <string name="enter_email">Введите электронную почту</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="signup_with_google">Войти через Google</string>
+    <string name="password">Пароль</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="google_icon_description">Инонка Google</string>
+    <string name="create_account">Создать аккаунт</string>
+    <string name="create_password">Придумайте пароль</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="accept_terms">Я согласен с условиями обслуживания и политикой конфиденциальности</string>
 </resources>

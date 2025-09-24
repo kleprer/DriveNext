@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="342dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semibold"
+        android:layout_gravity="center"
+        android:text="@string/log_into_account"
+        android:textColor="@color/second_primary"
+        android:textSize="24sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="@string/login_description"
+        android:textColor="#667085"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_gravity="start"
+        android:layout_marginTop="64dp"
+        android:text="@string/email"
+        android:textColor="#404040"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:minHeight="48dp"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_button_blank_cornered"
+        android:paddingStart="14dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/enter_email"
+        android:textColor="#667085"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="14sp"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_gravity="start"
+        android:layout_marginTop="16dp"
+        android:text="@string/password"
+        android:textColor="#404040"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:minHeight="48dp"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_button_blank_cornered"
+        android:paddingStart="14dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/enter_password"
+        android:textColor="#667085"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="14sp"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:text="@string/forgot_password"
+        android:textColor="@color/primary"
+        android:textSize="14sp" />
+
+
+    <android.widget.Button
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#2A1246"
+        android:background="@drawable/shape_button_footer"
+        android:paddingStart="32dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="32dp"
+        android:paddingBottom="14dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/log_in"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="14sp"
+        android:textAllCaps="false" />
+
+    <LinearLayout
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_button_blank_cornered"
+        android:paddingStart="32dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="32dp"
+        android:paddingBottom="14dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_google"
+            android:contentDescription="@string/google_icon_description"
+            android:layout_marginEnd="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/signup_with_google"
+            android:textColor="#344054"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_gravity="center"
+        android:layout_marginTop="64dp"
+        android:text="@string/sign_up"
+        android:textColor="@color/primary"
+        android:textSize="14sp" />
+</LinearLayout>
