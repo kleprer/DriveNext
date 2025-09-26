@@ -38,16 +38,32 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_pfp"
+        android:contentDescription="@string/add_pfp"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_regular"
         android:layout_gravity="start"
         android:layout_marginTop="32dp"
-        android:text="@string/last_name"
+        android:text="@string/add_pfp_description"
         android:textColor="#404040"
-        android:textSize="14sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="13sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_gravity="start"
+        android:layout_marginTop="16dp"
+        android:text="@string/driver_license"
+        android:textColor="#404040"
+        android:textSize="13sp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:minHeight="48dp"
@@ -60,11 +76,12 @@
         android:paddingEnd="14dp"
         android:paddingBottom="10dp"
         android:layout_marginTop="4dp"
-        android:text="@string/enter_last_name"
+        android:text="0000000000"
         android:textColor="#667085"
         android:fontFamily="@font/montserrat_regular"
         android:textSize="14sp"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -72,66 +89,9 @@
         android:fontFamily="@font/montserrat_regular"
         android:layout_gravity="start"
         android:layout_marginTop="16dp"
-        android:text="@string/name"
+        android:text="@string/date_of_issue"
         android:textColor="#404040"
-        android:textSize="14sp"
-        tools:ignore="HardcodedText" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:minHeight="48dp"
-        android:layout_width="342dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/shape_button_blank_cornered"
-        android:paddingStart="14dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="14dp"
-        android:paddingBottom="10dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/enter_first_name"
-        android:textColor="#667085"
-        android:fontFamily="@font/montserrat_regular"
-        android:textSize="14sp"
-        android:textAllCaps="false" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_regular"
-        android:layout_gravity="start"
-        android:layout_marginTop="16dp"
-        android:text="@string/middle_name"
-        android:textColor="#404040"
-        android:textSize="14sp"
-        tools:ignore="HardcodedText" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:minHeight="48dp"
-        android:layout_width="342dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/shape_button_blank_cornered"
-        android:paddingStart="14dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="14dp"
-        android:paddingBottom="10dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/enter_middle_name"
-        android:textColor="#667085"
-        android:fontFamily="@font/montserrat_regular"
-        android:textSize="14sp"
-        android:textAllCaps="false" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_regular"
-        android:layout_gravity="start"
-        android:layout_marginTop="16dp"
-        android:text="@string/birthday"
-        android:textColor="#404040"
-        android:textSize="14sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="14sp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:minHeight="48dp"
@@ -158,36 +118,35 @@
         android:fontFamily="@font/montserrat_regular"
         android:layout_gravity="start"
         android:layout_marginTop="16dp"
-        android:text="@string/gender"
+        android:text="@string/add_license_photo"
         android:textColor="#404040"
-        android:textSize="14sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="14sp" />
 
-    <LinearLayout
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:drawableStartCompat="@drawable/ic_upload"
+        android:text="@string/upload_file"
+        android:gravity="center|start"
+        android:drawablePadding="16dp" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_gravity="start"
+        android:layout_marginTop="16dp"
+        android:text="@string/upload_passport"
+        android:textColor="#404040"
+        android:textSize="14sp" />
 
-
-        <androidx.appcompat.widget.AppCompatRadioButton
-            android:id="@+id/radioMale"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:text="@string/male"
-            android:buttonTint="@color/new_gray"
-            android:layout_marginEnd="32dp" />
-
-        <androidx.appcompat.widget.AppCompatRadioButton
-            android:id="@+id/radioFemale"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
-            android:buttonTint="@color/new_gray"
-            android:text="@string/female"
-        />
-
-
-    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:drawableStartCompat="@drawable/ic_upload"
+        android:text="@string/upload_file"
+        android:gravity="center|start"
+        android:drawablePadding="16dp" />
 
     <android.widget.Button
         android:layout_width="342dp"
@@ -199,7 +158,7 @@
         android:paddingTop="14dp"
         android:paddingEnd="32dp"
         android:paddingBottom="14dp"
-        android:layout_marginTop="249dp"
+        android:layout_marginTop="54dp"
         android:text="@string/next"
         android:textColor="@color/white"
         android:fontFamily="@font/montserrat_regular"
