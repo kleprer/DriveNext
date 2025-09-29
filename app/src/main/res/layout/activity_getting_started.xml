@@ -41,6 +41,7 @@
         />
 
     <android.widget.Button
+        android:id="@+id/btn_login"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -58,6 +59,7 @@
         android:textAllCaps="false" />
 
     <android.widget.Button
+        android:id="@+id/btn_sign_up"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

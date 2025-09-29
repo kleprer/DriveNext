@@ -51,6 +51,7 @@
     </LinearLayout>
 
     <android.widget.Button
+        android:id="@+id/btn_congrats_next"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

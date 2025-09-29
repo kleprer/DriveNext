@@ -135,6 +135,7 @@
         />
 
     <android.widget.Button
+        android:id="@+id/btn_sign_up_next"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
