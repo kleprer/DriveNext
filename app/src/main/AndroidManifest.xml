@@ -11,15 +11,42 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileApp">
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+    <!-- Splash Activity -->
+    <activity
+        android:name="com.kleprer.mobileapp.auth.SplashActivity"
+        android:exported="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
+    <!-- Google Sign-In Activity -->
+    <activity
+        android:name="com.google.android.gms.common.api.GoogleApiActivity"
+        android:exported="false"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+    <!-- Google Sign-In Metadata -->
+    <meta-data
+        android:name="com.google.android.gms.auth.api.signin.GOOGLE_SIGN_IN_API"
+        android:value="https://www.googleapis.com/auth/userinfo.profile" />
+
+    <meta-data
+        android:name="com.google.android.gms.auth.api.signin.GOOGLE_SIGN_IN_CLIENT_ID"
+        android:value="@string/google_client_id" />
+
+    <!-- Other Activities -->
+    <activity android:name="com.kleprer.mobileapp.onboarding.GettingStartedActivity" />
+    <activity android:name="com.kleprer.mobileapp.onboarding.OnBoardingActivity" />
+    <activity android:name="com.kleprer.mobileapp.auth.LoginActivity" />
+    <activity android:name="com.kleprer.mobileapp.auth.SignUpActivity1" />
+    <activity android:name="com.kleprer.mobileapp.auth.SignUpActivity2" />
+    <activity android:name="com.kleprer.mobileapp.auth.SignUpActivity3" />
+    <activity android:name="com.kleprer.mobileapp.auth.CongratulationActivity" />
+    <activity android:name="com.kleprer.mobileapp.main.MainActivity" />
+    <activity android:name="com.kleprer.mobileapp.network.NoConnectionActivity" />
 
 </manifest>
