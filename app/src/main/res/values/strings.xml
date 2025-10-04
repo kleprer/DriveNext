@@ -7,8 +7,12 @@
     <string name="try_again">Повторить попытку</string>
     <string name="skip">Пропустить</string>
     <string name="illustration">Иллюстрация</string>
-    <string name="boarding_title">Аренда автомобилей</string>
-    <string name="boarding_description">Открой для себя удобный и доступный способ передвижения</string>
+    <string name="boarding_title1">Аренда автомобилей</string>
+    <string name="boarding_description1">Открой для себя удобный и доступный способ передвижения</string>
+    <string name="boarding_title2">Безопасно и удобно</string>
+    <string name="boarding_description2">Арендуй автомобиль и наслаждайся его удобством</string>
+    <string name="boarding_title3">Лучшие предложения</string>
+    <string name="boarding_description3">Выбирай понравившееся среди сотен доступных автомобилей</string>
     <string name="next">Далее</string>
     <string name="tab_selector_description">Переключатель вкладок</string>
     <string name="log_in">Войти</string>
