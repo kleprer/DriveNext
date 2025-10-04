@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">MobileApp</string>
-    <string name="drive_next">DriveNext</string>
+    <string name="app_name" translatable="false">MobileApp</string>
+    <string name="drive_next" translatable="false">DriveNext</string>
     <string name="description">Поможем найти твою следующую поездку</string>
     <string name="no_connection">Нет подключения к интернету</string>
     <string name="check_connection">Проверьте подключение и повторите попытку</string>
@@ -29,7 +29,7 @@
     <string name="accept_terms">Я согласен с условиями обслуживания и политикой конфиденциальности</string>
     <string name="enter_middle_name">Введите отчество</string>
     <string name="birthday">Дата рождения</string>
-    <string name="birthday_format">DD/MM/YYYY</string>
+    <string name="birthday_format" translatable="false">DD/MM/YYYY</string>
     <string name="middle_name">Отчество</string>
     <string name="enter_first_name">Введите имя</string>
     <string name="name">Имя</string>
