@@ -37,22 +37,26 @@
         android:textSize="14sp"
         tools:ignore="HardcodedText" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:minHeight="48dp"
+    <EditText
+        android:id="@+id/et_email"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="4dp"
+        android:autofillHints="@string/enter_email"
         android:background="@drawable/shape_button_blank_cornered"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/enter_email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
         android:paddingStart="14dp"
         android:paddingTop="10dp"
         android:paddingEnd="14dp"
         android:paddingBottom="10dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/enter_email"
+        android:textAllCaps="false"
         android:textColor="#667085"
-        android:fontFamily="@font/montserrat_regular"
         android:textSize="14sp"
-        android:textAllCaps="false" />
+        tools:ignore="LabelFor" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -65,22 +69,26 @@
         android:textSize="14sp"
         tools:ignore="HardcodedText" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:minHeight="48dp"
+    <EditText
+        android:id="@+id/et_password"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="4dp"
+        android:autofillHints="@string/enter_password"
         android:background="@drawable/shape_button_blank_cornered"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/enter_password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
         android:paddingStart="14dp"
         android:paddingTop="10dp"
         android:paddingEnd="14dp"
         android:paddingBottom="10dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/enter_password"
+        android:textAllCaps="false"
         android:textColor="#667085"
-        android:fontFamily="@font/montserrat_regular"
         android:textSize="14sp"
-        android:textAllCaps="false" />
+        tools:ignore="LabelFor" />
 
     <TextView
         android:id="@+id/btn_forgot_password"

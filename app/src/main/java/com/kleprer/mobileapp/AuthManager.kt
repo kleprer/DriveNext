@@ -42,7 +42,9 @@ object AuthManager {
 
     // обычный вход
     suspend fun loginUser(email: String, password: String): Result<UserModel> =
-        withContext(Dispatchers.IO) { userRepository.loginUser(email, password) }
+        withContext(Dispatchers.IO) {
+            userRepository.loginUser(email, password)
+        }
 
     // выход из аккаунта
     suspend fun logoutUser(userId: Long): Result<Boolean> = withContext(context = Dispatchers.IO) {
@@ -65,6 +67,13 @@ object AuthManager {
     suspend fun getCurrentUser(): UserModel? = withContext(Dispatchers.IO) {
         userRepository.getCurrentUser()
     }
+
+    // SharedPreferences методы
+    fun saveCurrentUserId(context: Context, userId: Long) {
+        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            .edit { putLong(KEY_CURRENT_USER_ID, userId) }
+    }
+
 
     fun getCurrentUserId(context: Context): Long? {
         val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
