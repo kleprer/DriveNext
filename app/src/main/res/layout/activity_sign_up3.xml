@@ -14,6 +14,7 @@
         android:layout_marginTop="16dp" >
 
         <ImageButton
+            android:id="@+id/ibtn_sign_up_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -40,6 +41,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
+        android:id="@+id/iv_add_pfp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add_pfp"
@@ -67,6 +69,7 @@
         android:textSize="13sp" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_license_number"
         android:minHeight="48dp"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
@@ -95,6 +98,7 @@
         android:textSize="14sp" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_issue_date"
         android:minHeight="48dp"
         android:layout_width="342dp"
         android:layout_height="wrap_content"

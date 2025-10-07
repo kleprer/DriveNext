@@ -45,7 +45,7 @@
     <activity android:name="com.kleprer.mobileapp.auth.SignUpActivity1" />
     <activity android:name="com.kleprer.mobileapp.auth.SignUpActivity2" />
     <activity android:name="com.kleprer.mobileapp.auth.SignUpActivity3" />
-    <activity android:name="com.kleprer.mobileapp.auth.CongratulationActivity" />
+    <activity android:name="com.kleprer.mobileapp.auth.CongratulationsActivity" />
     <activity android:name="com.kleprer.mobileapp.main.MainActivity" />
     <activity android:name="com.kleprer.mobileapp.network.NoConnectionActivity" />
 
