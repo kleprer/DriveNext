@@ -44,4 +44,14 @@ interface UserDao {
     // валидация
     @Query("SELECT COUNT(*) FROM users WHERE email = :email")
     suspend fun checkEmailExists(email: String): Int
+
+    // ДОБАВЛЕНО: Обновление путей к изображениям
+    @Query("UPDATE users SET profileImagePath = :profilePath, updatedAt = :timestamp WHERE id = :userId")
+    suspend fun updateProfileImage(userId: Long, profilePath: String, timestamp: Long)
+
+    @Query("UPDATE users SET licenseImagePath = :licensePath, updatedAt = :timestamp WHERE id = :userId")
+    suspend fun updateLicenseImage(userId: Long, licensePath: String, timestamp: Long)
+
+    @Query("UPDATE users SET passportImagePath = :passportPath, updatedAt = :timestamp WHERE id = :userId")
+    suspend fun updatePassportImage(userId: Long, passportPath: String, timestamp: Long)
 }

@@ -2,7 +2,6 @@ package com.kleprer.mobileapp.data.repo
 
 import UserModel
 import com.kleprer.mobileapp.data.dao.UserDao
-import kotlinx.coroutines.flow.Flow
 
 class UserRepo(private val userDao: UserDao) {
 
@@ -54,6 +53,37 @@ class UserRepo(private val userDao: UserDao) {
 
     // получение текущего пользователя
     suspend fun getCurrentUser(): UserModel? = userDao.getActiveUser()
+
+    // обновление изображений
+    suspend fun updateProfileImage(userId: Long, imagePath: String): Result<Boolean> {
+        return try {
+            val timestamp = System.currentTimeMillis()
+            userDao.updateProfileImage(userId, imagePath, timestamp)
+            Result.success(true)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    suspend fun updateLicenseImage(userId: Long, imagePath: String): Result<Boolean> {
+        return try {
+            val timestamp = System.currentTimeMillis()
+            userDao.updateLicenseImage(userId, imagePath, timestamp)
+            Result.success(true)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    suspend fun updatePassportImage(userId: Long, imagePath: String): Result<Boolean> {
+        return try {
+            val timestamp = System.currentTimeMillis()
+            userDao.updatePassportImage(userId, imagePath, timestamp)
+            Result.success(true)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
 
     // генерация токенов
     private fun generateToken(email: String): String = "app_token_${email.hashCode()}_${System.currentTimeMillis()}"

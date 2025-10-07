@@ -40,6 +40,26 @@ object AuthManager {
         userRepository.registerUser(user)
     }
 
+
+    // ДОБАВЛЕНО: Обновление изображений профиля
+    suspend fun updateProfileImage(userId: Long, imagePath: String): Result<Boolean> {
+        return withContext(Dispatchers.IO) {
+            userRepository.updateProfileImage(userId, imagePath)
+        }
+    }
+
+    suspend fun updateLicenseImage(userId: Long, imagePath: String): Result<Boolean> {
+        return withContext(Dispatchers.IO) {
+            userRepository.updateLicenseImage(userId, imagePath)
+        }
+    }
+
+    suspend fun updatePassportImage(userId: Long, imagePath: String): Result<Boolean> {
+        return withContext(Dispatchers.IO) {
+            userRepository.updatePassportImage(userId, imagePath)
+        }
+    }
+
     // обычный вход
     suspend fun loginUser(email: String, password: String): Result<UserModel> =
         withContext(Dispatchers.IO) {
