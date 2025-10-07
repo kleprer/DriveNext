@@ -1,174 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="342dp"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:id="@+id/view_activity_sign_up3">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="342dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" >
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/view_activity_sign_up3">
 
-        <ImageButton
-            android:id="@+id/ibtn_sign_up_back"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" >
+
+            <ImageButton
+                android:id="@+id/ibtn_sign_up_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="68dp"
+                android:background="android:color/transparent"
+                android:src="@drawable/ic_back_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="@string/create_account"
+                android:textColor="@color/second_primary"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/iv_add_pfp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_pfp"
+            android:contentDescription="@string/add_pfp"
             android:layout_gravity="center"
-            android:layout_marginEnd="68dp"
-            android:background="android:color/transparent"
-            android:src="@drawable/ic_back_arrow"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="32dp" />
 
         <TextView
-            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_gravity="start"
+            android:layout_marginTop="32dp"
+            android:text="@string/add_pfp_description"
+            android:textColor="#404040"
+            android:textSize="13sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_gravity="start"
+            android:layout_marginTop="16dp"
+            android:text="@string/driver_license"
+            android:textColor="#404040"
+            android:textSize="13sp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_license_number"
+            android:minHeight="48dp"
+            android:layout_width="342dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="@string/create_account"
-            android:textColor="@color/second_primary"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:background="@drawable/shape_button_blank_cornered"
+            android:paddingStart="14dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="4dp"
+            android:text="0000000000"
+            android:textColor="#667085"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            tools:ignore="HardcodedText" />
 
-    <ImageView
-        android:id="@+id/iv_add_pfp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_add_pfp"
-        android:contentDescription="@string/add_pfp"
-        android:layout_gravity="center"
-        android:layout_marginTop="32dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_gravity="start"
+            android:layout_marginTop="16dp"
+            android:text="@string/date_of_issue"
+            android:textColor="#404040"
+            android:textSize="14sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_regular"
-        android:layout_gravity="start"
-        android:layout_marginTop="32dp"
-        android:text="@string/add_pfp_description"
-        android:textColor="#404040"
-        android:textSize="13sp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_regular"
-        android:layout_gravity="start"
-        android:layout_marginTop="16dp"
-        android:text="@string/driver_license"
-        android:textColor="#404040"
-        android:textSize="13sp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_issue_date"
+            android:minHeight="48dp"
+            android:layout_width="342dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_button_blank_cornered"
+            android:paddingStart="14dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/birthday_format"
+            android:drawableStart="@drawable/ic_calendar"
+            android:drawablePadding="8dp"
+            android:textColor="#667085"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="14sp"
+            android:textAllCaps="false" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/et_license_number"
-        android:minHeight="48dp"
-        android:layout_width="342dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/shape_button_blank_cornered"
-        android:paddingStart="14dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="14dp"
-        android:paddingBottom="10dp"
-        android:layout_marginTop="4dp"
-        android:text="0000000000"
-        android:textColor="#667085"
-        android:fontFamily="@font/montserrat_regular"
-        android:textSize="14sp"
-        android:textAllCaps="false"
-        tools:ignore="HardcodedText" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_gravity="start"
+            android:layout_marginTop="16dp"
+            android:text="@string/add_license_photo"
+            android:textColor="#404040"
+            android:textSize="14sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_regular"
-        android:layout_gravity="start"
-        android:layout_marginTop="16dp"
-        android:text="@string/date_of_issue"
-        android:textColor="#404040"
-        android:textSize="14sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:drawableStartCompat="@drawable/ic_upload"
+            android:text="@string/upload_file"
+            android:gravity="center|start"
+            android:drawablePadding="16dp" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/et_issue_date"
-        android:minHeight="48dp"
-        android:layout_width="342dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/shape_button_blank_cornered"
-        android:paddingStart="14dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="14dp"
-        android:paddingBottom="10dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/birthday_format"
-        android:drawableStart="@drawable/ic_calendar"
-        android:drawablePadding="8dp"
-        android:textColor="#667085"
-        android:fontFamily="@font/montserrat_regular"
-        android:textSize="14sp"
-        android:textAllCaps="false" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_gravity="start"
+            android:layout_marginTop="16dp"
+            android:text="@string/upload_passport"
+            android:textColor="#404040"
+            android:textSize="14sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_regular"
-        android:layout_gravity="start"
-        android:layout_marginTop="16dp"
-        android:text="@string/add_license_photo"
-        android:textColor="#404040"
-        android:textSize="14sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:drawableStartCompat="@drawable/ic_upload"
+            android:text="@string/upload_file"
+            android:gravity="center|start"
+            android:drawablePadding="16dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:drawableStartCompat="@drawable/ic_upload"
-        android:text="@string/upload_file"
-        android:gravity="center|start"
-        android:drawablePadding="16dp" />
+        <android.widget.Button
+            android:id="@+id/btn_sign_up_next3"
+            android:layout_width="342dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#2A1246"
+            android:background="@drawable/shape_button_footer"
+            android:paddingStart="32dp"
+            android:paddingTop="14dp"
+            android:paddingEnd="32dp"
+            android:paddingBottom="14dp"
+            android:layout_marginTop="54dp"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="14sp"
+            android:textAllCaps="false" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_regular"
-        android:layout_gravity="start"
-        android:layout_marginTop="16dp"
-        android:text="@string/upload_passport"
-        android:textColor="#404040"
-        android:textSize="14sp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:drawableStartCompat="@drawable/ic_upload"
-        android:text="@string/upload_file"
-        android:gravity="center|start"
-        android:drawablePadding="16dp" />
-
-    <android.widget.Button
-        android:id="@+id/btn_sign_up_next3"
-        android:layout_width="342dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:backgroundTint="#2A1246"
-        android:background="@drawable/shape_button_footer"
-        android:paddingStart="32dp"
-        android:paddingTop="14dp"
-        android:paddingEnd="32dp"
-        android:paddingBottom="14dp"
-        android:layout_marginTop="54dp"
-        android:text="@string/next"
-        android:textColor="@color/white"
-        android:fontFamily="@font/montserrat_regular"
-        android:textSize="14sp"
-        android:textAllCaps="false" />
-
-</LinearLayout>
+    </LinearLayout>
+</layout>

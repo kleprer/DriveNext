@@ -1,79 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/view_getting_started">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginStart="24dp"
-        android:orientation="vertical" >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-        <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/view_getting_started">
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_semibold"
-            android:textSize="24sp"
-            android:text="@string/drive_next"
+            android:layout_marginTop="64dp"
+            android:layout_marginStart="24dp"
+            android:orientation="vertical" >
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textSize="24sp"
+                android:text="@string/drive_next"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"
+                android:text="@string/description"
+                android:textColor="@color/black"
+                />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="119dp"
+            android:src="@drawable/ic_splash"
+            android:background="android:color/transparent"
             />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <android.widget.Button
+            android:id="@+id/btn_login"
+            android:layout_width="342dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#2A1246"
+            android:background="@drawable/shape_button_footer"
+            android:paddingStart="32dp"
+            android:paddingTop="14dp"
+            android:paddingEnd="32dp"
+            android:paddingBottom="14dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/log_in"
+            android:textColor="@color/white"
             android:fontFamily="@font/montserrat_regular"
             android:textSize="14sp"
-            android:text="@string/description"
-            android:textColor="@color/black"
-            />
+            android:textAllCaps="false" />
+
+        <android.widget.Button
+            android:id="@+id/btn_sign_up"
+            android:layout_width="342dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_button_blank_cornered"
+            android:paddingStart="32dp"
+            android:paddingTop="14dp"
+            android:paddingEnd="32dp"
+            android:paddingBottom="14dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/sign_up"
+            android:textColor="#344054"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="14sp"
+            android:textAllCaps="false" />
 
     </LinearLayout>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="119dp"
-        android:src="@drawable/ic_splash"
-        android:background="android:color/transparent"
-        />
-
-    <android.widget.Button
-        android:id="@+id/btn_login"
-        android:layout_width="342dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:backgroundTint="#2A1246"
-        android:background="@drawable/shape_button_footer"
-        android:paddingStart="32dp"
-        android:paddingTop="14dp"
-        android:paddingEnd="32dp"
-        android:paddingBottom="14dp"
-        android:layout_marginTop="50dp"
-        android:text="@string/log_in"
-        android:textColor="@color/white"
-        android:fontFamily="@font/montserrat_regular"
-        android:textSize="14sp"
-        android:textAllCaps="false" />
-
-    <android.widget.Button
-        android:id="@+id/btn_sign_up"
-        android:layout_width="342dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/shape_button_blank_cornered"
-        android:paddingStart="32dp"
-        android:paddingTop="14dp"
-        android:paddingEnd="32dp"
-        android:paddingBottom="14dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/sign_up"
-        android:textColor="#344054"
-        android:fontFamily="@font/montserrat_regular"
-        android:textSize="14sp"
-        android:textAllCaps="false" />
-
-</LinearLayout>
+</layout>
