@@ -5,6 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
 import com.kleprer.mobileapp.data.dao.UserDao
+import com.kleprer.mobileapp.data.models.UserModel
 
 @Database(
     entities = [UserModel::class], // Make sure UserModel exists
@@ -24,9 +25,9 @@ abstract class AppDatabase : RoomDatabase() { // Renamed to avoid confusion
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "app_database" // Better database name
+                    "app_database"
                 )
-                    .fallbackToDestructiveMigration(false) // Remove the (false) parameter
+                    .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance
                 instance

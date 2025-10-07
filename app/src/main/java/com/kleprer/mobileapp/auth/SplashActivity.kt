@@ -9,6 +9,7 @@ import com.kleprer.mobileapp.main.MainActivity
 import com.kleprer.mobileapp.onboarding.GettingStartedActivity
 import kotlinx.coroutines.launch
 import androidx.lifecycle.lifecycleScope
+import com.kleprer.mobileapp.AuthManager
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {

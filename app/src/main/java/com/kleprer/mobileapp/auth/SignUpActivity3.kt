@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
+import com.kleprer.mobileapp.AuthManager
 import kotlinx.coroutines.launch
 
 class SignUpActivity3 : AppCompatActivity() {

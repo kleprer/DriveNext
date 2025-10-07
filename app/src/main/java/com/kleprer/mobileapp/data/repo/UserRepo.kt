@@ -1,7 +1,7 @@
 package com.kleprer.mobileapp.data.repo
 
-import UserModel
 import com.kleprer.mobileapp.data.dao.UserDao
+import com.kleprer.mobileapp.data.models.UserModel
 
 class UserRepo(private val userDao: UserDao) {
 

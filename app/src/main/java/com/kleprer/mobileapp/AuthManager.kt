@@ -1,3 +1,5 @@
+package com.kleprer.mobileapp
+
 import android.content.Context
 import android.content.SharedPreferences
 import com.kleprer.mobileapp.data.db.AppDatabase
@@ -5,6 +7,7 @@ import com.kleprer.mobileapp.data.repo.UserRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import androidx.core.content.edit
+import com.kleprer.mobileapp.data.models.UserModel
 
 object AuthManager {
 

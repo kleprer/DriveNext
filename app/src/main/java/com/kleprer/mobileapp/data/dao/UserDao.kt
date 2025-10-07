@@ -1,7 +1,7 @@
 package com.kleprer.mobileapp.data.dao
 
-import UserModel
 import androidx.room.*
+import com.kleprer.mobileapp.data.models.UserModel
 import kotlinx.coroutines.flow.Flow
 
 @Dao
