@@ -12,49 +12,63 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.kleprer.mobileapp.AuthManager
+import com.kleprer.mobileapp.databinding.ActivityLoginBinding
 import com.kleprer.mobileapp.main.MainActivity
 import kotlinx.coroutines.launch
 
 
 class LoginActivity : AppCompatActivity() {
 
-    private companion object { const val RC_GOOGLE_SIGN_IN = 1001 }
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        // обычный вход
-        findViewById<Button>(R.id.btn_login).setOnClickListener {
+        // Используем binding вместо findViewById
+        binding.btnLogin.setOnClickListener {
             if (validateInput()) performLogin()
         }
 
-        // регистрация
-        findViewById<Button>(R.id.btn_sign_up).setOnClickListener {
+        // Добавляем обработчик для текста "Sign Up"
+        binding.btnSignUp.setOnClickListener {
             startActivity(Intent(this, SignUpActivity1::class.java))
+        }
+
+        // Google вход
+        binding.btnLoginGoogle.setOnClickListener {
+            Toast.makeText(this, "Google login will be implemented", Toast.LENGTH_SHORT).show()
+        }
+
+        // Забыли пароль
+        binding.btnForgotPassword.setOnClickListener {
+            Toast.makeText(this, "Password recovery will be implemented", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun validateInput(): Boolean {
-        val email = this.findViewById<EditText>(R.id.et_email).text.toString()
-        val password = this.findViewById<EditText>(R.id.et_password).text.toString()
+        val email = binding.etEmail.text.toString()
+        val password = binding.etPassword.text.toString()
 
         if (email.isEmpty()) {
-            findViewById<EditText>(R.id.et_email).error = "Введите email"
+            binding.etEmail.error = "Введите email"
             return false
         }
 
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            findViewById<EditText>(R.id.et_email).error = "Введите корректный email"
+            binding.etEmail.error = "Введите корректный email"
             return false
         }
 
         if (password.isEmpty()) {
-            findViewById<EditText>(R.id.et_password).error = "Введите пароль"
+            binding.etPassword.error = "Введите пароль"
             return false
         }
 
@@ -62,8 +76,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun performLogin() {
-        val email = findViewById<EditText>(R.id.et_email).text.toString()
-        val password = findViewById<EditText>(R.id.et_password).text.toString()
+        val email = binding.etEmail.text.toString()
+        val password = binding.etPassword.text.toString()
 
         lifecycleScope.launch {
             val result = AuthManager.loginUser(email, password)
@@ -85,7 +99,6 @@ class LoginActivity : AppCompatActivity() {
 
     private fun navigateToMain() {
         startActivity(Intent(this, MainActivity::class.java))
-        finish()
     }
 
     private fun showError(message: String) {

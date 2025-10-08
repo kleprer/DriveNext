@@ -9,32 +9,40 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.kleprer.mobileapp.AuthManager
+import com.kleprer.mobileapp.databinding.ActivitySignUp3Binding
 import kotlinx.coroutines.launch
 
 class SignUpActivity3 : AppCompatActivity() {
+
+    private lateinit var binding: ActivitySignUp3Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up3)
 
-        findViewById<Button>(R.id.btn_sign_up_next3).setOnClickListener {
+        binding = ActivitySignUp3Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnSignUpNext3.setOnClickListener {
             if (validateInput()) completeRegistration()
         }
 
-        findViewById<Button>(R.id.ibtn_sign_up_back).setOnClickListener { finish() }
+        binding.ibtnSignUpBack.setOnClickListener {
+            finish() // Возврат на SignUpActivity2
+        }
     }
 
     private fun validateInput(): Boolean {
-        val licenseNumber = findViewById<EditText>(R.id.et_license_number).text.toString()
-        val issueDate = findViewById<EditText>(R.id.et_issue_date).text.toString()
+        val licenseNumber = binding.etLicenseNumber.text.toString()
+        val issueDate = binding.etIssueDate.text.toString()
 
         if (licenseNumber.isEmpty()) {
-            findViewById<EditText>(R.id.et_license_number).error = "Введите номер удостоверения"
+            binding.etLicenseNumber.error = "Введите номер удостоверения"
             return false
         }
 
         if (issueDate.isEmpty()) {
-            findViewById<EditText>(R.id.et_issue_date).error = "Введите дату выдачи"
+            binding.etIssueDate.error = "Введите дату выдачи"
             return false
         }
 
@@ -75,7 +83,6 @@ class SignUpActivity3 : AppCompatActivity() {
         val intent = Intent(this, CongratulationsActivity::class.java)
         intent.putExtra("user_email", intent.getStringExtra("email"))
         startActivity(intent)
-        finish()
     }
 
 

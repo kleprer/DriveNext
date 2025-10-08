@@ -11,56 +11,62 @@ import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.Toast
 import com.kleprer.mobileapp.auth.SignUpActivity3
+import com.kleprer.mobileapp.databinding.ActivitySignUp2Binding
+
 class SignUpActivity2 : AppCompatActivity() {
+
+    private lateinit var binding: ActivitySignUp2Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up2)
 
-        findViewById<Button>(R.id.btn_sign_up_next).setOnClickListener {
+        binding = ActivitySignUp2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnSignUpNext.setOnClickListener {
             if (validateInput()) goToNextStep()
         }
 
-        findViewById<Button>(R.id.ibtn_sign_up_back).setOnClickListener { finish() }
+        binding.ibtnSignUpBack.setOnClickListener {
+            finish() // Возврат на SignUpActivity1
+        }
     }
 
     private fun validateInput(): Boolean {
-        val lastName = findViewById<EditText>(R.id.et_last_name).text.toString()
-        val firstName = findViewById<EditText>(R.id.et_first_name).text.toString()
-        val middleName = findViewById<EditText>(R.id.et_middle_name).text.toString()
-        val birthDate = findViewById<EditText>(R.id.et_birth_date).text.toString()
+        val lastName = binding.etLastName.text.toString()
+        val firstName = binding.etFirstName.text.toString()
+        val birthDate = binding.etBirthDate.text.toString()
 
         if (lastName.isEmpty()) {
-            findViewById<EditText>(R.id.et_last_name).error = "Введите фамилию"
+            binding.etLastName.error = "Введите фамилию"
             return false
         }
 
         if (firstName.isEmpty()) {
-            findViewById<EditText>(R.id.et_first_name).error = "Введите имя"
+            binding.etFirstName.error = "Введите имя"
             return false
         }
 
         if (birthDate.isEmpty()) {
-            findViewById<EditText>(R.id.et_birth_date).error = "Введите дату рождения"
+            binding.etBirthDate.error = "Введите дату рождения"
             return false
         }
 
         return true
     }
 
-    private fun goToNextStep() {
-        val bundle = Bundle().apply {
-            putString("email", intent.getStringExtra("email"))
-            putString("password", intent.getStringExtra("password"))
-            putString("firstName", findViewById<EditText>(R.id.et_first_name).text.toString())
-            putString("lastName", findViewById<EditText>(R.id.et_last_name).text.toString())
-            putString("middleName", findViewById<EditText>(R.id.et_middle_name).text.toString())
-            putString("birthDate", findViewById<EditText>(R.id.et_birth_date).text.toString())
-            putString("gender", if (findViewById<RadioButton>(R.id.rb_male).isChecked) "Мужской" else "Женский")
-        }
+    private fun goToNextStep() {val intent = Intent(this, SignUpActivity3::class.java)
 
-        val intent = Intent(this, SignUpActivity3::class.java)
-        intent.putExtras(bundle)
+        // Передаем данные из предыдущего экрана + текущие
+        intent.putExtra("email", intent.getStringExtra("email") ?: "")
+        intent.putExtra("password", intent.getStringExtra("password") ?: "")
+        intent.putExtra("firstName", binding.etFirstName.text.toString())
+        intent.putExtra("lastName", binding.etLastName.text.toString())
+        intent.putExtra("middleName", binding.etMiddleName.text.toString())
+        intent.putExtra("birthDate", binding.etBirthDate.text.toString())
+        intent.putExtra("gender", if (binding.rbMale.isChecked) "Мужской" else "Женский")
+
         startActivity(intent)
     }
 }

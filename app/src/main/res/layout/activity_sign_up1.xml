@@ -26,7 +26,8 @@
                 android:src="@drawable/ic_back_arrow"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textView4"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -55,6 +56,7 @@
             tools:ignore="HardcodedText" />
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email"
             android:minHeight="48dp"
             android:layout_width="342dp"
             android:layout_height="wrap_content"
@@ -83,6 +85,7 @@
             tools:ignore="HardcodedText" />
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
             android:minHeight="48dp"
             android:layout_width="342dp"
             android:layout_height="wrap_content"
@@ -146,18 +149,19 @@
             android:layout_width="342dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:backgroundTint="#2A1246"
+            android:layout_marginTop="249dp"
             android:background="@drawable/shape_button_footer"
+            android:backgroundTint="#2A1246"
+            android:fontFamily="@font/montserrat_regular"
+            android:minHeight="32dp"
             android:paddingStart="32dp"
             android:paddingTop="14dp"
             android:paddingEnd="32dp"
             android:paddingBottom="14dp"
-            android:layout_marginTop="249dp"
             android:text="@string/next"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:fontFamily="@font/montserrat_regular"
-            android:textSize="14sp"
-            android:textAllCaps="false" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 </layout>

@@ -4,22 +4,32 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.kleprer.mobileapp.R
-import android.widget.Button
+import com.kleprer.mobileapp.databinding.ActivityGettingStartedBinding
 import com.kleprer.mobileapp.auth.LoginActivity
 import com.kleprer.mobileapp.auth.SignUpActivity1
 
 class GettingStartedActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityGettingStartedBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_getting_started)
 
-        findViewById<Button>(R.id.btn_login).setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+
+        // Инициализируем View Binding
+        binding = ActivityGettingStartedBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Используем binding для доступа к элементам
+        binding.btnLogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
 
-        findViewById<Button>(R.id.btn_sign_up).setOnClickListener {
-            startActivity(Intent(this, SignUpActivity1::class.java))
+        binding.btnSignUp.setOnClickListener {
+            val intent = Intent(this, SignUpActivity1::class.java)
+            startActivity(intent)
         }
     }
 }
