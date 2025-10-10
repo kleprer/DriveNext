@@ -52,7 +52,10 @@
             android:text="@string/email"
             android:textColor="#404040"
             android:textSize="14sp"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText"
+            android:maxLines="1"
+
+            android:imeOptions="actionNext"/>
 
         <EditText
             android:id="@+id/et_email"
@@ -101,7 +104,10 @@
             android:textSize="14sp"
             android:textAllCaps="false"
             tools:ignore="LabelFor"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:maxLines="1"
+
+            android:imeOptions="actionNext"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -132,7 +138,10 @@
             android:textSize="14sp"
             android:textAllCaps="false"
             tools:ignore="LabelFor"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:maxLines="1"
+
+            android:imeOptions="actionNext"/>
 
         <CheckBox
             android:id="@+id/cb_agree"

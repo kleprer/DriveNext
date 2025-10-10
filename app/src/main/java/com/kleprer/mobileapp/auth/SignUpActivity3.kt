@@ -98,6 +98,10 @@ class SignUpActivity3 : AppCompatActivity() {
             currentImageType = "passport"
             showImageSourceDialog()
         }
+
+
+        val email = intent.getStringExtra("email") ?: ""
+        println("DEBUG: SignUp3 onCreate - received email: $email")
     }
 
     private fun showImageSourceDialog() {
@@ -247,16 +251,19 @@ class SignUpActivity3 : AppCompatActivity() {
     }
 
     private suspend fun performRegistration(): Result<Long> {
+        val email = intent.getStringExtra("email") ?: ""
+        println("DEBUG: Registration email: $email")
+
         return AuthManager.registerUser(
-            email = intent.getStringExtra("email") ?: "",
+            email = email,
             password = intent.getStringExtra("password") ?: "",
             firstName = intent.getStringExtra("firstName") ?: "",
             lastName = intent.getStringExtra("lastName") ?: "",
             birthDate = intent.getStringExtra("birthDate") ?: "",
             gender = intent.getStringExtra("gender") ?: "",
             middleName = intent.getStringExtra("middleName"),
-            driverLicense = findViewById<EditText>(R.id.et_license_number).text.toString(),
-            licenseIssueDate = findViewById<EditText>(R.id.et_issue_date).text.toString()
+            driverLicense = binding.etLicenseNumber.text.toString(), // FIX: use binding
+            licenseIssueDate = binding.etIssueDate.text.toString()   // FIX: use binding
         )
     }
 

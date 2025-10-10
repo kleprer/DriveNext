@@ -8,12 +8,21 @@ class UserRepo(private val userDao: UserDao) {
     // зарегистрироваться
     suspend fun registerUser(user: UserModel): Result<Long> {
         return try {
-            if (userDao.checkEmailExists(user.email) > 0) {
+            println("DEBUG: Checking if email exists: ${user.email}")
+            val existingCount = userDao.checkEmailExists(user.email)
+            println("DEBUG: Email exists count: $existingCount")
+
+            if (existingCount > 0) {
+                println("DEBUG: Email ${user.email} already exists in database")
                 return Result.failure(Exception("Пользователь с таким email уже существует"))
             }
+
+            println("DEBUG: Inserting new user: ${user.email}")
             val userId = userDao.insertUser(user)
+            println("DEBUG: User inserted with ID: $userId")
             Result.success(userId)
         } catch (e: Exception) {
+            println("DEBUG: Registration error: ${e.message}")
             Result.failure(Exception("Ошибка регистрации: ${e.message}"))
         }
     }

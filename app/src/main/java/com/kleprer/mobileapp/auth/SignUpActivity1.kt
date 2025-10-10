@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.kleprer.mobileapp.R
 import android.widget.EditText
 import android.widget.Toast
+import com.kleprer.mobileapp.data.db.AppDatabase
 import com.kleprer.mobileapp.databinding.ActivitySignUp1Binding
 
 class SignUpActivity1 : AppCompatActivity() {
@@ -24,8 +25,9 @@ class SignUpActivity1 : AppCompatActivity() {
         }
 
         binding.ibtnSignUpBack.setOnClickListener {
-            finish() // Возврат на предыдущий экран
+            finish()
         }
+
     }
 
     private fun validateInput(): Boolean {
@@ -74,4 +76,7 @@ class SignUpActivity1 : AppCompatActivity() {
         intent.putExtra("password", binding.etPassword.text.toString())
         startActivity(intent)
     }
+
+
+
 }

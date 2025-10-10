@@ -84,16 +84,22 @@ class SignUpActivity2 : AppCompatActivity() {
         }
     }
 
-    private fun goToNextStep() {val intent = Intent(this, SignUpActivity3::class.java)
+    private fun goToNextStep() {
+        val intent = Intent(this, SignUpActivity3::class.java)
 
-        // Передаем данные из предыдущего экрана + текущие
-        intent.putExtra("email", intent.getStringExtra("email") ?: "")
+        // Получаем email из предыдущей активити И передаем его дальше
+
+        val emailFromPrevious = this.intent.getStringExtra("email") ?: ""
+        val password = this.intent.getStringExtra("password") ?: ""
+        println("DEBUG: SignUp2 -> SignUp3, email: $emailFromPrevious")
+
+        intent.putExtra("email", emailFromPrevious)
         intent.putExtra("password", intent.getStringExtra("password") ?: "")
         intent.putExtra("firstName", binding.etFirstName.text.toString())
         intent.putExtra("lastName", binding.etLastName.text.toString())
         intent.putExtra("middleName", binding.etMiddleName.text.toString())
         intent.putExtra("birthDate", binding.etBirthDate.text.toString())
-        intent.putExtra("gender", if (binding.rbMale.isChecked) "Мужской" else "Женский")
+        intent.putExtra("gender", if (binding.rbMale.isChecked) binding.rbMale.text else binding.rbFemale.text)
 
         startActivity(intent)
     }

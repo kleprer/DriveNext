@@ -52,7 +52,7 @@
             app:shapeAppearanceOverlay="@style/CircleImageView"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:layout_gravity="start"
@@ -61,7 +61,7 @@
             android:textColor="#404040"
             android:textSize="13sp" />
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:layout_gravity="start"
@@ -90,7 +90,7 @@
             tools:ignore="HardcodedText" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:layout_gravity="start"
@@ -112,7 +112,7 @@
             android:paddingBottom="10dp"
             android:layout_marginTop="4dp"
             android:hint="DD/MM/YYYY"
-            android:autofillHints="DD/MM/YYYY"
+            android:autofillHints="DD.MM.YYYY"
             android:drawableStart="@drawable/ic_calendar"
             android:drawablePadding="8dp"
             android:textColor="#667085"
@@ -121,7 +121,7 @@
             android:textAllCaps="false" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:layout_gravity="start"
