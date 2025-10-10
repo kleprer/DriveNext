@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
-        android:layout_width="342dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+    android:paddingHorizontal="16dp"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
         android:id="@+id/view_activity_sign_up1">
 
@@ -58,7 +57,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_email"
             android:minHeight="48dp"
-            android:layout_width="342dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/shape_button_blank_cornered"
@@ -144,12 +143,16 @@
 
             />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
         <android.widget.Button
             android:id="@+id/btn_sign_up_next"
             android:layout_width="342dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="249dp"
             android:background="@drawable/shape_button_footer"
             android:backgroundTint="#2A1246"
             android:fontFamily="@font/montserrat_regular"
@@ -158,10 +161,10 @@
             android:paddingTop="14dp"
             android:paddingEnd="32dp"
             android:paddingBottom="14dp"
+            android:layout_marginBottom="32dp"
             android:text="@string/next"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
     </LinearLayout>
-</layout>

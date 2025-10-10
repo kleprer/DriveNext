@@ -8,11 +8,11 @@ import com.kleprer.mobileapp.data.dao.UserDao
 import com.kleprer.mobileapp.data.models.UserModel
 
 @Database(
-    entities = [UserModel::class], // Make sure UserModel exists
+    entities = [UserModel::class],
     version = 1,
     exportSchema = false
 )
-abstract class AppDatabase : RoomDatabase() { // Renamed to avoid confusion
+abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
 

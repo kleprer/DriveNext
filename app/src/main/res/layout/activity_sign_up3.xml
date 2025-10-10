@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
         android:layout_width="342dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
         android:id="@+id/view_activity_sign_up3">
 
@@ -125,14 +123,15 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:layout_gravity="start"
-            android:layout_marginTop="16dp"
             android:text="@string/add_license_photo"
             android:textColor="#404040"
             android:textSize="14sp" />
 
         <TextView
+            android:clickable="true"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
             app:drawableStartCompat="@drawable/ic_upload"
             android:text="@string/upload_file"
             android:gravity="center|start"
@@ -143,18 +142,23 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:layout_gravity="start"
-            android:layout_marginTop="16dp"
             android:text="@string/upload_passport"
             android:textColor="#404040"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:drawableStartCompat="@drawable/ic_upload"
             android:text="@string/upload_file"
             android:gravity="center|start"
-            android:drawablePadding="16dp" />
+            android:drawablePadding="16dp"/>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
         <android.widget.Button
             android:id="@+id/btn_sign_up_next3"
@@ -167,12 +171,11 @@
             android:paddingTop="14dp"
             android:paddingEnd="32dp"
             android:paddingBottom="14dp"
-            android:layout_marginTop="54dp"
             android:text="@string/next"
             android:textColor="@color/white"
             android:fontFamily="@font/montserrat_regular"
             android:textSize="14sp"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:layout_marginBottom="32dp"/>
 
     </LinearLayout>
-</layout>

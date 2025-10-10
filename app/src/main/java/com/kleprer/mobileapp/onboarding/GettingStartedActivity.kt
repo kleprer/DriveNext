@@ -17,11 +17,9 @@ class GettingStartedActivity : AppCompatActivity() {
         setContentView(R.layout.activity_getting_started)
 
 
-        // Инициализируем View Binding
         binding = ActivityGettingStartedBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Используем binding для доступа к элементам
         binding.btnLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)

@@ -18,7 +18,6 @@ class SignUpActivity3 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up3)
 
         binding = ActivitySignUp3Binding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -30,6 +29,7 @@ class SignUpActivity3 : AppCompatActivity() {
         binding.ibtnSignUpBack.setOnClickListener {
             finish() // Возврат на SignUpActivity2
         }
+
     }
 
     private fun validateInput(): Boolean {

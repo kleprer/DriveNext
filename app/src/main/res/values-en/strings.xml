@@ -47,4 +47,5 @@
     <string name="boarding_title2">" Safe and convenient"</string>
     <string name="boarding_description2">Rent a car and enjoy its convenience</string>
     <string name="boarding_title3">" Best offers"</string>
+    <string name="congratulations_text">You've successfully signed up. Your personal info will be checked in two hours. Thanks for the wait!</string>
 </resources>
