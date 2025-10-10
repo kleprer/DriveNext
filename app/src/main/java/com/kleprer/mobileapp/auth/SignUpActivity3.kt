@@ -123,17 +123,7 @@ class SignUpActivity3 : AppCompatActivity() {
     }
 
     private fun launchGallery() {
-        val permission = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
-            android.Manifest.permission.READ_MEDIA_IMAGES
-        } else {
-            android.Manifest.permission.READ_EXTERNAL_STORAGE
-        }
-
-        if (imagePicker.hasStoragePermission()) {
-            galleryLauncher.launch(imagePicker.createGalleryIntent())
-        } else {
-            storagePermissionLauncher.launch(permission)
-        }
+        galleryLauncher.launch(imagePicker.createGalleryIntent())
     }
 
     private fun handleImageSelected(uri: Uri?, imageType: String) {
