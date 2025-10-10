@@ -2,6 +2,7 @@ package com.kleprer.mobileapp.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.kleprer.mobileapp.R
 import android.widget.Button
@@ -33,9 +34,16 @@ class SignUpActivity2 : AppCompatActivity() {
     }
 
     private fun validateInput(): Boolean {
-        val lastName = binding.etLastName.text.toString()
-        val firstName = binding.etFirstName.text.toString()
-        val birthDate = binding.etBirthDate.text.toString()
+        val lastName = binding.etLastName.text.toString().trim()
+        val firstName = binding.etFirstName.text.toString().trim()
+        val birthDate = binding.etBirthDate.text.toString().trim()
+        val isGenderSelected = binding.rbMale.isChecked || binding.rbFemale.isChecked
+
+        // Clear previous errors
+        binding.etLastName.error = null
+        binding.etFirstName.error = null
+        binding.etBirthDate.error = null
+        binding.tvGenderError.visibility = View.GONE
 
         if (lastName.isEmpty()) {
             binding.etLastName.error = "Введите фамилию"
@@ -52,7 +60,28 @@ class SignUpActivity2 : AppCompatActivity() {
             return false
         }
 
+        // Validate date format (DD.MM.YYYY)
+        if (!isValidDate(birthDate)) {
+            binding.etBirthDate.error = "Неверный формат даты (ДД.ММ.ГГГГ)"
+            return false
+        }
+
+        if (!isGenderSelected) {
+            binding.tvGenderError.text = "Выберите пол"
+            binding.tvGenderError.visibility = View.VISIBLE
+            return false
+        }
+
         return true
+    }
+
+    private fun isValidDate(date: String): Boolean {
+        return try {
+            val pattern = Regex("""^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$""")
+            pattern.matches(date)
+        } catch (e: Exception) {
+            false
+        }
     }
 
     private fun goToNextStep() {val intent = Intent(this, SignUpActivity3::class.java)

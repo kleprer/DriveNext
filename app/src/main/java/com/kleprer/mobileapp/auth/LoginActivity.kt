@@ -55,8 +55,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validateInput(): Boolean {
-        val email = binding.etEmail.text.toString()
+        val email = binding.etEmail.text.toString().trim()
         val password = binding.etPassword.text.toString()
+
+        binding.etEmail.error = null
+        binding.etPassword.error = null
 
         if (email.isEmpty()) {
             binding.etEmail.error = "Введите email"
@@ -64,12 +67,12 @@ class LoginActivity : AppCompatActivity() {
         }
 
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.etEmail.error = "Введите корректный email"
+            binding.etEmail.error = getString(R.string.enter_valid_email)
             return false
         }
 
         if (password.isEmpty()) {
-            binding.etPassword.error = "Введите пароль"
+            binding.etPassword.error = getString(R.string.enter_password)
             return false
         }
 
@@ -88,7 +91,7 @@ class LoginActivity : AppCompatActivity() {
                     navigateToMain()
                 },
                 onFailure = { exception ->
-                    showError("Ошибка входа: ${exception.message}")
+                    showError(getString(R.string.login_error, exception.message))
                 }
             )
         }

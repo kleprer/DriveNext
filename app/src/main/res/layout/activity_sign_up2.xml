@@ -42,7 +42,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:layout_gravity="start"
@@ -52,26 +52,29 @@
             android:textSize="14sp"
             tools:ignore="HardcodedText" />
 
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_last_name"
             android:minHeight="48dp"
-            android:layout_width="342dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:background="@drawable/shape_button_blank_cornered"
             android:paddingStart="14dp"
             android:paddingTop="10dp"
             android:paddingEnd="14dp"
             android:paddingBottom="10dp"
-            android:layout_marginTop="4dp"
-            android:text="@string/enter_last_name"
-            android:textColor="#667085"
+            android:hint="@string/enter_last_name"
+            android:textColor="#404040"
+            android:textColorHint="#667085"
             android:fontFamily="@font/montserrat_regular"
             android:textSize="14sp"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:inputType="textCapWords"
+            android:imeOptions="actionNext"
+            android:maxLines="1" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:layout_gravity="start"
@@ -84,36 +87,38 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_first_name"
             android:minHeight="48dp"
-            android:layout_width="342dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:background="@drawable/shape_button_blank_cornered"
             android:paddingStart="14dp"
             android:paddingTop="10dp"
             android:paddingEnd="14dp"
             android:paddingBottom="10dp"
-            android:layout_marginTop="4dp"
-            android:text="@string/enter_first_name"
-            android:textColor="#667085"
+            android:hint="@string/enter_first_name"
+            android:textColor="#404040"
+            android:textColorHint="#667085"
             android:fontFamily="@font/montserrat_regular"
             android:textSize="14sp"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:inputType="textCapWords"
+            android:imeOptions="actionNext"
+            android:maxLines="1" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:layout_gravity="start"
             android:layout_marginTop="16dp"
             android:text="@string/middle_name"
             android:textColor="#404040"
-            android:textSize="14sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="14sp"/>
+
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_middle_name"
             android:minHeight="48dp"
-            android:layout_width="342dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/shape_button_blank_cornered"
@@ -122,14 +127,18 @@
             android:paddingEnd="14dp"
             android:paddingBottom="10dp"
             android:layout_marginTop="4dp"
-            android:text="@string/enter_middle_name"
-            android:textColor="#667085"
+            android:hint="@string/enter_middle_name"
+            android:textColor="#404040"
+            android:textColorHint="#667085"
             android:fontFamily="@font/montserrat_regular"
             android:textSize="14sp"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:inputType="textCapWords"
+            android:imeOptions="actionNext"
+            android:maxLines="1" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:layout_gravity="start"
@@ -139,28 +148,32 @@
             android:textSize="14sp"
             tools:ignore="HardcodedText" />
 
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_birth_date"
             android:minHeight="48dp"
-            android:layout_width="342dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:background="@drawable/shape_button_blank_cornered"
             android:paddingStart="14dp"
             android:paddingTop="10dp"
             android:paddingEnd="14dp"
             android:paddingBottom="10dp"
-            android:layout_marginTop="4dp"
-            android:text="@string/birthday_format"
+            android:hint="@string/birthday_format"
+            android:textColor="#404040"
+            android:textColorHint="#667085"
             android:drawableStart="@drawable/ic_calendar"
             android:drawablePadding="8dp"
-            android:textColor="#667085"
             android:fontFamily="@font/montserrat_regular"
             android:textSize="14sp"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:inputType="date"
+            android:focusable="true"
+            android:clickable="true"
+            android:imeOptions="actionNext" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:layout_gravity="start"
@@ -171,7 +184,7 @@
             tools:ignore="HardcodedText" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -196,6 +209,17 @@
 
         </LinearLayout>
 
+
+    <TextView
+        android:id="@+id/tv_gender_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/error_red"
+        android:textSize="12sp"
+        android:fontFamily="@font/montserrat_regular"
+        android:visibility="gone"
+        android:layout_marginTop="4dp" />
+
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -204,7 +228,7 @@
 
         <android.widget.Button
             android:id="@+id/btn_sign_up_next"
-            android:layout_width="342dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:backgroundTint="#2A1246"

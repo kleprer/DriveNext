@@ -1,20 +1,70 @@
 package com.kleprer.mobileapp.auth
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.kleprer.mobileapp.R
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.lifecycleScope
 import com.kleprer.mobileapp.AuthManager
+import com.kleprer.mobileapp.data.db.AppDatabase
+import com.kleprer.mobileapp.data.repo.UserRepo
 import com.kleprer.mobileapp.databinding.ActivitySignUp3Binding
+import com.kleprer.mobileapp.utils.ImagePicker
 import kotlinx.coroutines.launch
+import java.io.File
+import java.io.FileOutputStream
+import androidx.core.content.edit
+import com.bumptech.glide.Glide
 
 class SignUpActivity3 : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUp3Binding
+    private lateinit var imagePicker: ImagePicker
+    private var currentImageType: String = "" // "profile", "license", "passport"
+
+    // Add shared preferences
+    private lateinit var preferences: android.content.SharedPreferences
+
+    // Register for activity results using the new API
+    private val cameraLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val uri = imagePicker.getImageFromCameraResult(result.data)
+            handleImageSelected(uri, currentImageType)
+        } else {
+            Toast.makeText(this, "Camera cancelled", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private val galleryLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val uri = imagePicker.getImageFromGalleryResult(result.data)
+            handleImageSelected(uri, currentImageType)
+        } else {
+            Toast.makeText(this, "Gallery cancelled", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // Permission launchers
+    private val cameraPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+        if (isGranted) {
+            cameraLauncher.launch(imagePicker.createCameraIntent())
+        } else {
+            Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private val storagePermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+        if (isGranted) {
+            galleryLauncher.launch(imagePicker.createGalleryIntent())
+        } else {
+            Toast.makeText(this, "Storage permission denied", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,16 +72,155 @@ class SignUpActivity3 : AppCompatActivity() {
         binding = ActivitySignUp3Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        imagePicker = ImagePicker(this)
+        preferences = getSharedPreferences("temp_images", MODE_PRIVATE)
+
         binding.btnSignUpNext3.setOnClickListener {
             if (validateInput()) completeRegistration()
         }
 
         binding.ibtnSignUpBack.setOnClickListener {
-            finish() // Возврат на SignUpActivity2
+            finish()
         }
 
+        // Set up click listeners for upload views
+        binding.ivUploadPfp.setOnClickListener {
+            currentImageType = "profile"
+            showImageSourceDialog()
+        }
+
+        binding.tvUploadDriverLicense.setOnClickListener {
+            currentImageType = "license"
+            showImageSourceDialog()
+        }
+
+        binding.tvUploadPassport.setOnClickListener {
+            currentImageType = "passport"
+            showImageSourceDialog()
+        }
     }
 
+    private fun showImageSourceDialog() {
+        val options = arrayOf("Camera", "Gallery")
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("Choose Image Source")
+            .setItems(options) { _, which ->
+                when (which) {
+                    0 -> launchCamera()
+                    1 -> launchGallery()
+                }
+            }
+            .setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
+            .show()
+    }
+
+    private fun launchCamera() {
+        if (imagePicker.hasCameraPermission()) {
+            cameraLauncher.launch(imagePicker.createCameraIntent())
+        } else {
+            cameraPermissionLauncher.launch(android.Manifest.permission.CAMERA)
+        }
+    }
+
+    private fun launchGallery() {
+        val permission = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            android.Manifest.permission.READ_MEDIA_IMAGES
+        } else {
+            android.Manifest.permission.READ_EXTERNAL_STORAGE
+        }
+
+        if (imagePicker.hasStoragePermission()) {
+            galleryLauncher.launch(imagePicker.createGalleryIntent())
+        } else {
+            storagePermissionLauncher.launch(permission)
+        }
+    }
+
+    private fun handleImageSelected(uri: Uri?, imageType: String) {
+        if (uri == null) {
+            Toast.makeText(this, "Failed to get image", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        lifecycleScope.launch {
+            try {
+                // Copy image to app's internal storage and get file path
+                // Сохраняем путь к файлу (как вы уже делаете)
+                val imagePath = saveImageToInternalStorage(uri, imageType)
+
+                // Загружаем через Glide с масштабированием до 128x128
+                when (imageType) {
+                    "profile" -> {
+                        Glide.with(this@SignUpActivity3)
+                            .load(imagePath)
+                            .circleCrop() // если хотите круглую картинку
+                            .override(128, 128) // устанавливаем размер 128x128
+                            .into(binding.ivUploadPfp)
+                        Toast.makeText(this@SignUpActivity3, "Profile photo selected", Toast.LENGTH_SHORT).show()
+                    }
+                    "license" -> {
+                        binding.tvUploadDriverLicense.text = "✓ ${getString(R.string.upload_file)}"
+                        Toast.makeText(this@SignUpActivity3, "License photo selected", Toast.LENGTH_SHORT).show()
+                    }
+                    "passport" -> {
+                        binding.tvUploadPassport.text = "✓ ${getString(R.string.upload_file)}"
+                        Toast.makeText(this@SignUpActivity3, "Passport photo selected", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                // Store the image path temporarily
+                when (imageType) {
+                    "profile" -> preferences.edit().putString("temp_profile_path", imagePath).apply()
+                    "license" -> preferences.edit().putString("temp_license_path", imagePath).apply()
+                    "passport" -> preferences.edit().putString("temp_passport_path", imagePath).apply()
+                }
+
+            } catch (e: Exception) {
+                Toast.makeText(this@SignUpActivity3, "Error saving image: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private suspend fun saveImageToInternalStorage(uri: Uri, imageType: String): String {
+        return try {
+            val inputStream = contentResolver.openInputStream(uri)
+            val timeStamp = System.currentTimeMillis()
+            val fileName = "${imageType}_image_$timeStamp.jpg"
+            val file = File(filesDir, fileName)
+
+            inputStream?.use { input ->
+                FileOutputStream(file).use { output ->
+                    input.copyTo(output)
+                }
+            }
+
+            file.absolutePath
+        } catch (e: Exception) {
+            throw Exception("Failed to save image: ${e.message}")
+        }
+    }
+
+    private fun loadSavedImages() {
+        val profilePath = preferences.getString("temp_profile_path", null)
+        val licensePath = preferences.getString("temp_license_path", null)
+        val passportPath = preferences.getString("temp_passport_path", null)
+
+        profilePath?.let { path ->
+            Glide.with(this)
+                .load(path)
+                .circleCrop()
+                .override(128, 128)
+                .into(binding.ivUploadPfp)
+        }
+
+        licensePath?.let { path ->
+            binding.tvUploadDriverLicense.text = "✓ ${getString(R.string.upload_file)}"
+        }
+
+        passportPath?.let { path ->
+            binding.tvUploadPassport.text = "✓ ${getString(R.string.upload_file)}"
+        }
+    }
     private fun validateInput(): Boolean {
         val licenseNumber = binding.etLicenseNumber.text.toString()
         val issueDate = binding.etIssueDate.text.toString()
@@ -55,6 +244,8 @@ class SignUpActivity3 : AppCompatActivity() {
 
             result.fold(
                 onSuccess = { userId ->
+                    // Save images to database after successful registration
+                    saveUserImages(userId)
                     AuthManager.saveCurrentUserId(this@SignUpActivity3, userId)
                     navigateToCongratulations()
                 },
@@ -79,12 +270,32 @@ class SignUpActivity3 : AppCompatActivity() {
         )
     }
 
+    private suspend fun saveUserImages(userId: Long) {
+        val profilePath = preferences.getString("temp_profile_path", null)
+        val licensePath = preferences.getString("temp_license_path", null)
+        val passportPath = preferences.getString("temp_passport_path", null)
+
+        profilePath?.let { path ->
+            AuthManager.updateProfileImage(userId, path)
+        }
+
+        licensePath?.let { path ->
+            AuthManager.updateLicenseImage(userId, path)
+        }
+
+        passportPath?.let { path ->
+            AuthManager.updatePassportImage(userId, path)
+        }
+        // Clear temporary preferences
+        preferences.edit { clear() }
+    }
+
     private fun navigateToCongratulations() {
         val intent = Intent(this, CongratulationsActivity::class.java)
         intent.putExtra("user_email", intent.getStringExtra("email"))
         startActivity(intent)
+        finish()
     }
-
 
     private fun showError(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()

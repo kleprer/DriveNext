@@ -42,13 +42,14 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/iv_add_pfp"
+            android:id="@+id/iv_upload_pfp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_add_pfp"
             android:contentDescription="@string/add_pfp"
             android:layout_gravity="center"
-            android:layout_marginTop="32dp" />
+            android:layout_marginTop="32dp"
+            app:shapeAppearanceOverlay="@style/CircleImageView"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,10 +70,10 @@
             android:textColor="#404040"
             android:textSize="13sp" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/et_license_number"
             android:minHeight="48dp"
-            android:layout_width="342dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/shape_button_blank_cornered"
@@ -81,7 +82,7 @@
             android:paddingEnd="14dp"
             android:paddingBottom="10dp"
             android:layout_marginTop="4dp"
-            android:text="0000000000"
+            android:hint="0000000000"
             android:textColor="#667085"
             android:fontFamily="@font/montserrat_regular"
             android:textSize="14sp"
@@ -98,10 +99,10 @@
             android:textColor="#404040"
             android:textSize="14sp" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/et_issue_date"
             android:minHeight="48dp"
-            android:layout_width="342dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/shape_button_blank_cornered"
@@ -110,7 +111,8 @@
             android:paddingEnd="14dp"
             android:paddingBottom="10dp"
             android:layout_marginTop="4dp"
-            android:text="@string/birthday_format"
+            android:hint="DD/MM/YYYY"
+            android:autofillHints="DD/MM/YYYY"
             android:drawableStart="@drawable/ic_calendar"
             android:drawablePadding="8dp"
             android:textColor="#667085"
@@ -128,6 +130,7 @@
             android:textSize="14sp" />
 
         <TextView
+            android:id="@+id/tv_upload_driver_license"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -147,6 +150,7 @@
             android:textSize="14sp" />
 
         <TextView
+            android:id="@+id/tv_upload_passport"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:drawableStartCompat="@drawable/ic_upload"
@@ -162,7 +166,7 @@
 
         <android.widget.Button
             android:id="@+id/btn_sign_up_next3"
-            android:layout_width="342dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:backgroundTint="#2A1246"

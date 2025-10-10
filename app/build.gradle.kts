@@ -73,5 +73,11 @@ dependencies {
     // Google Sign-In
     implementation("com.google.android.gms:play-services-auth:20.7.0")  // UPDATED version
 
-    // Remove the invalid ksp function at the bottom
+    // Working with camera/gallery
+    implementation("androidx.activity:activity-ktx:1.8.0")
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
+    implementation("androidx.exifinterface:exifinterface:1.3.6")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
+
 }

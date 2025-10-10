@@ -54,7 +54,7 @@
             android:textSize="14sp"
             tools:ignore="HardcodedText" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/et_email"
             android:minHeight="48dp"
             android:layout_width="match_parent"
@@ -66,11 +66,12 @@
             android:paddingEnd="14dp"
             android:paddingBottom="10dp"
             android:layout_marginTop="4dp"
-            android:text="@string/enter_email"
+            android:hint="@string/enter_email"
             android:textColor="#667085"
             android:fontFamily="@font/montserrat_regular"
             android:textSize="14sp"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -80,13 +81,12 @@
             android:layout_marginTop="16dp"
             android:text="@string/create_password"
             android:textColor="#404040"
-            android:textSize="14sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="14sp"/>
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/et_password"
             android:minHeight="48dp"
-            android:layout_width="342dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/shape_button_blank_cornered"
@@ -95,11 +95,13 @@
             android:paddingEnd="14dp"
             android:paddingBottom="10dp"
             android:layout_marginTop="4dp"
-            android:text="@string/enter_password"
+            android:hint="@string/enter_password"
             android:textColor="#667085"
             android:fontFamily="@font/montserrat_regular"
             android:textSize="14sp"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            tools:ignore="LabelFor"
+            android:inputType="textPassword"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -110,12 +112,12 @@
             android:text="@string/repeat_password"
             android:textColor="#404040"
             android:textSize="14sp"
-            tools:ignore="HardcodedText" />
+            />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/et_confirm_password"
             android:minHeight="48dp"
-            android:layout_width="342dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/shape_button_blank_cornered"
@@ -124,11 +126,13 @@
             android:paddingEnd="14dp"
             android:paddingBottom="10dp"
             android:layout_marginTop="4dp"
-            android:text="@string/enter_password"
+            android:hint="@string/enter_password"
             android:textColor="#667085"
             android:fontFamily="@font/montserrat_regular"
             android:textSize="14sp"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            tools:ignore="LabelFor"
+            android:inputType="textPassword"/>
 
         <CheckBox
             android:id="@+id/cb_agree"
@@ -150,7 +154,7 @@
 
         <android.widget.Button
             android:id="@+id/btn_sign_up_next"
-            android:layout_width="342dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/shape_button_footer"

@@ -50,4 +50,12 @@
     <string name="upload_file">Загрузить фото</string>
     <string name="upload_passport">Загрузите фото паспорта</string>
     <string name="congratulations_text">Вы успешно зарегистрировались. Обработка ваших персональных данных займет около двух часов. Спасибо за ожидание.</string>
+    <string name="enter_valid_email">Введите корректный email</string>
+    <string name="login_error">Ошибка входа</string>
+    <string name="password_at_least_6">Пароль должен быть не менее 6 символов</string>
+    <string name="passwords_dont_match">Пароли не совпадают</string>
+    <string name="agreement_required">Необходимо согласие с условиями</string>
+    <string name="date_not_valid">Неверный формат даты (ДД.ММ.ГГГГ)</string>
+    <string name="enter_date_of_issue">Введите дату выдачи</string>
+    <string name="license_short">Номер удостоверения слишком короткий</string>
 </resources>
