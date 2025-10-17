@@ -1,7 +1,7 @@
 package com.kleprer.mobileapp
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.content.SharedPreferences
 import com.kleprer.mobileapp.data.db.AppDatabase
 import com.kleprer.mobileapp.data.repo.UserRepo
 import kotlinx.coroutines.Dispatchers
@@ -10,7 +10,6 @@ import androidx.core.content.edit
 import com.kleprer.mobileapp.data.models.UserModel
 
 object AuthManager {
-
     private lateinit var userRepository: UserRepo
 
     private const val PREFS_NAME = "auth_preferences"
@@ -43,8 +42,6 @@ object AuthManager {
         userRepository.registerUser(user)
     }
 
-
-    // ДОБАВЛЕНО: Обновление изображений профиля
     suspend fun updateProfileImage(userId: Long, imagePath: String): Result<Boolean> {
         return withContext(Dispatchers.IO) {
             userRepository.updateProfileImage(userId, imagePath)
@@ -69,19 +66,6 @@ object AuthManager {
             userRepository.loginUser(email, password)
         }
 
-    // выход из аккаунта
-    suspend fun logoutUser(userId: Long): Result<Boolean> = withContext(context = Dispatchers.IO) {
-        try {
-            val context = MyApplication.applicationContext()
-            val prefs = context.getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE)
-            prefs.edit { remove(KEY_CURRENT_USER_ID) }
-
-            Result.success(true) // Explicitly return success
-        } catch (e: Exception) {
-            Result.failure(e) // Return failure if any exception occurs
-        }
-    }
-
     // проверка авторизации
     suspend fun isUserLoggedIn(): Boolean = withContext(Dispatchers.IO) {
         userRepository.getCurrentUser() != null
@@ -95,12 +79,6 @@ object AuthManager {
     fun saveCurrentUserId(context: Context, userId: Long) {
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
             .edit { putLong(KEY_CURRENT_USER_ID, userId) }
-    }
-
-
-    fun getCurrentUserId(context: Context): Long? {
-        val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        return if (prefs.contains(KEY_CURRENT_USER_ID)) prefs.getLong(KEY_CURRENT_USER_ID, -1) else null
     }
 
     fun isFirstLaunch(context: Context): Boolean {

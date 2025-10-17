@@ -4,14 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.kleprer.mobileapp.R
-import android.widget.EditText
 import android.widget.Toast
-import com.kleprer.mobileapp.data.db.AppDatabase
 import com.kleprer.mobileapp.databinding.ActivitySignUp1Binding
 
 class SignUpActivity1 : AppCompatActivity() {
-
-
     private lateinit var binding: ActivitySignUp1Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +23,6 @@ class SignUpActivity1 : AppCompatActivity() {
         binding.ibtnSignUpBack.setOnClickListener {
             finish()
         }
-
     }
 
     private fun validateInput(): Boolean {
@@ -36,7 +31,6 @@ class SignUpActivity1 : AppCompatActivity() {
         val confirmPassword = binding.etConfirmPassword.text.toString()
         val agreeChecked = binding.cbAgree.isChecked
 
-        // Clear previous errors
         binding.etEmail.error = null
         binding.etPassword.error = null
         binding.etConfirmPassword.error = null
@@ -69,14 +63,10 @@ class SignUpActivity1 : AppCompatActivity() {
         return true
     }
 
-
     private fun goToNextStep() {
         val intent = Intent(this, SignUpActivity2::class.java)
         intent.putExtra("email", binding.etEmail.text.toString())
         intent.putExtra("password", binding.etPassword.text.toString())
         startActivity(intent)
     }
-
-
-
 }

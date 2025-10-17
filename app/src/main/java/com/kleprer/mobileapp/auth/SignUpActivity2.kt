@@ -5,17 +5,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.kleprer.mobileapp.R
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.Toast
-import com.kleprer.mobileapp.auth.SignUpActivity3
 import com.kleprer.mobileapp.databinding.ActivitySignUp2Binding
 
 class SignUpActivity2 : AppCompatActivity() {
-
     private lateinit var binding: ActivitySignUp2Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +21,7 @@ class SignUpActivity2 : AppCompatActivity() {
         }
 
         binding.ibtnSignUpBack.setOnClickListener {
-            finish() // Возврат на SignUpActivity1
+            finish() // возврат на SignUpActivity1
         }
     }
 
@@ -39,35 +31,33 @@ class SignUpActivity2 : AppCompatActivity() {
         val birthDate = binding.etBirthDate.text.toString().trim()
         val isGenderSelected = binding.rbMale.isChecked || binding.rbFemale.isChecked
 
-        // Clear previous errors
         binding.etLastName.error = null
         binding.etFirstName.error = null
         binding.etBirthDate.error = null
         binding.tvGenderError.visibility = View.GONE
 
         if (lastName.isEmpty()) {
-            binding.etLastName.error = "Введите фамилию"
+            binding.etLastName.error = getString(R.string.enter_last_name)
             return false
         }
 
         if (firstName.isEmpty()) {
-            binding.etFirstName.error = "Введите имя"
+            binding.etFirstName.error = getString(R.string.enter_first_name)
             return false
         }
 
         if (birthDate.isEmpty()) {
-            binding.etBirthDate.error = "Введите дату рождения"
+            binding.etBirthDate.error = getString(R.string.enter_birthdate)
             return false
         }
 
-        // Validate date format (DD.MM.YYYY)
         if (!isValidDate(birthDate)) {
-            binding.etBirthDate.error = "Неверный формат даты (ДД.ММ.ГГГГ)"
+            binding.etBirthDate.error = getString(R.string.invalid_date_format)
             return false
         }
 
         if (!isGenderSelected) {
-            binding.tvGenderError.text = "Выберите пол"
+            binding.tvGenderError.text = getString(R.string.choose_gender)
             binding.tvGenderError.visibility = View.VISIBLE
             return false
         }
@@ -87,14 +77,12 @@ class SignUpActivity2 : AppCompatActivity() {
     private fun goToNextStep() {
         val intent = Intent(this, SignUpActivity3::class.java)
 
-        // Получаем email из предыдущей активити И передаем его дальше
-
         val emailFromPrevious = this.intent.getStringExtra("email") ?: ""
         val password = this.intent.getStringExtra("password") ?: ""
         println("DEBUG: SignUp2 -> SignUp3, email: $emailFromPrevious")
 
         intent.putExtra("email", emailFromPrevious)
-        intent.putExtra("password", intent.getStringExtra("password") ?: "")
+        intent.putExtra("password", password)
         intent.putExtra("firstName", binding.etFirstName.text.toString())
         intent.putExtra("lastName", binding.etLastName.text.toString())
         intent.putExtra("middleName", binding.etMiddleName.text.toString())

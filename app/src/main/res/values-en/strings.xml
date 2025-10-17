@@ -49,11 +49,20 @@
     <string name="boarding_title3">" Best offers"</string>
     <string name="congratulations_text">You\'ve successfully signed up. Your personal info will be checked in two hours. Thanks for the wait!</string>
     <string name="enter_valid_email">Enter valid email</string>
-    <string name="login_error">Login error</string>
+    <string name="login_error">Login error %s</string>
     <string name="password_at_least_6">Password should be at lest 6 characters long</string>
     <string name="passwords_dont_match">Passwords do not match</string>
     <string name="agreement_required">Agreement required</string>
     <string name="date_not_valid">Not valid date</string>
     <string name="enter_date_of_issue">Enter date of issue</string>
     <string name="license_short">License number is too short</string>
+    <string name="later">Feature will be implemented later</string>
+    <string name="enter_birthdate">Enter birthdate</string>
+    <string name="choose_gender">Choose gender</string>
+    <string name="invalid_date_format">Invalid date format (DD.MM.YYYY)</string>
+    <string name="error_email_already_exists">User with this email already exists</string>
+    <string name="sign_up_error">Sign up error: %1$s</string>
+    <string name="account_deactivated">Account deactivated</string>
+    <string name="invalid_password">Invalid password</string>
+    <string name="user_not_found">User not found</string>
 </resources>

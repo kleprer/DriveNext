@@ -1,9 +1,14 @@
 package com.kleprer.mobileapp.data.repo
 
+import android.content.Context
+import com.kleprer.mobileapp.R
 import com.kleprer.mobileapp.data.dao.UserDao
 import com.kleprer.mobileapp.data.models.UserModel
 
-class UserRepo(private val userDao: UserDao) {
+class UserRepo(
+    private val userDao: UserDao,
+    private val context: Context
+) {
 
     // зарегистрироваться
     suspend fun registerUser(user: UserModel): Result<Long> {
@@ -14,7 +19,7 @@ class UserRepo(private val userDao: UserDao) {
 
             if (existingCount > 0) {
                 println("DEBUG: Email ${user.email} already exists in database")
-                return Result.failure(Exception("Пользователь с таким email уже существует"))
+                return Result.failure(Exception(context.getString(R.string.error_email_already_exists)))
             }
 
             println("DEBUG: Inserting new user: ${user.email}")
@@ -23,7 +28,7 @@ class UserRepo(private val userDao: UserDao) {
             Result.success(userId)
         } catch (e: Exception) {
             println("DEBUG: Registration error: ${e.message}")
-            Result.failure(Exception("Ошибка регистрации: ${e.message}"))
+            Result.failure(Exception(context.getString(R.string.sign_up_error, e.message)))
         }
     }
 
@@ -33,9 +38,9 @@ class UserRepo(private val userDao: UserDao) {
             val user = userDao.getUserByEmail(email)
 
             when {
-                user == null -> Result.failure(Exception("Пользователь не найден"))
-                user.password != password -> Result.failure(Exception("Неверный пароль"))
-                !user.isActive -> Result.failure(Exception("Аккаунт деактивирован"))
+                user == null -> Result.failure(Exception(context.getString(R.string.user_not_found)))
+                user.password != password -> Result.failure(Exception(context.getString(R.string.invalid_password)))
+                !user.isActive -> Result.failure(Exception(context.getString(R.string.account_deactivated)))
                 else -> {
                     val token = generateToken(user.email)
                     val expiry = System.currentTimeMillis() + (24 * 60 * 60 * 1000)
@@ -56,7 +61,7 @@ class UserRepo(private val userDao: UserDao) {
             userDao.logoutUser(userId, System.currentTimeMillis())
             Result.success(true)
         } catch (e: Exception) {
-            Result.failure(Exception("Ошибка выхода: ${e.message}"))
+            Result.failure(Exception(context.getString(R.string.sign_up_error, e.message)))
         }
     }
 

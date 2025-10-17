@@ -9,7 +9,6 @@ import com.kleprer.mobileapp.auth.LoginActivity
 import com.kleprer.mobileapp.auth.SignUpActivity1
 
 class GettingStartedActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityGettingStartedBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -51,11 +51,20 @@
     <string name="upload_passport">Загрузите фото паспорта</string>
     <string name="congratulations_text">Вы успешно зарегистрировались. Обработка ваших персональных данных займет около двух часов. Спасибо за ожидание.</string>
     <string name="enter_valid_email">Введите корректный email</string>
-    <string name="login_error">Ошибка входа</string>
+    <string name="login_error">Ошибка входа %s</string>
     <string name="password_at_least_6">Пароль должен быть не менее 6 символов</string>
     <string name="passwords_dont_match">Пароли не совпадают</string>
     <string name="agreement_required">Необходимо согласие с условиями</string>
     <string name="date_not_valid">Неверный формат даты (ДД.ММ.ГГГГ)</string>
     <string name="enter_date_of_issue">Введите дату выдачи</string>
     <string name="license_short">Номер удостоверения слишком короткий</string>
+    <string name="later">Функция будет реализована позже</string>
+    <string name="enter_birthdate">Введите дату рождения</string>
+    <string name="choose_gender">Выберите пол</string>
+    <string name="invalid_date_format">Неверный формат даты (ДД.ММ.ГГГГ)</string>
+    <string name="error_email_already_exists">Пользователь с такой почтой уже существует</string>
+    <string name="sign_up_error">Ошибка регистрации: %1$s</string>
+    <string name="account_deactivated">Аккаунт деактивирован</string>
+    <string name="invalid_password">Неверный пароль</string>
+    <string name="user_not_found">Пользователь не найден</string>
 </resources>

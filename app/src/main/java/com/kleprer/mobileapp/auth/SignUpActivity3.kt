@@ -27,10 +27,8 @@ class SignUpActivity3 : AppCompatActivity() {
     private lateinit var imagePicker: ImagePicker
     private var currentImageType: String = "" // "profile", "license", "passport"
 
-    // Add shared preferences
     private lateinit var preferences: android.content.SharedPreferences
 
-    // Register for activity results using the new API
     private val cameraLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
             val uri = imagePicker.getImageFromCameraResult(result.data)
@@ -49,20 +47,11 @@ class SignUpActivity3 : AppCompatActivity() {
         }
     }
 
-    // Permission launchers
     private val cameraPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
         if (isGranted) {
             cameraLauncher.launch(imagePicker.createCameraIntent())
         } else {
             Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private val storagePermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
-        if (isGranted) {
-            galleryLauncher.launch(imagePicker.createGalleryIntent())
-        } else {
-            Toast.makeText(this, "Storage permission denied", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -74,6 +63,7 @@ class SignUpActivity3 : AppCompatActivity() {
 
         imagePicker = ImagePicker(this)
         preferences = getSharedPreferences("temp_images", MODE_PRIVATE)
+        loadSavedImages()
 
         binding.btnSignUpNext3.setOnClickListener {
             if (validateInput()) completeRegistration()
@@ -83,7 +73,6 @@ class SignUpActivity3 : AppCompatActivity() {
             finish()
         }
 
-        // Set up click listeners for upload views
         binding.ivUploadPfp.setOnClickListener {
             currentImageType = "profile"
             showImageSourceDialog()
@@ -138,17 +127,13 @@ class SignUpActivity3 : AppCompatActivity() {
 
         lifecycleScope.launch {
             try {
-                // Copy image to app's internal storage and get file path
-                // Сохраняем путь к файлу (как вы уже делаете)
                 val imagePath = saveImageToInternalStorage(uri, imageType)
-
-                // Загружаем через Glide с масштабированием до 128x128
                 when (imageType) {
                     "profile" -> {
                         Glide.with(this@SignUpActivity3)
                             .load(imagePath)
-                            .circleCrop() // если хотите круглую картинку
-                            .override(128, 128) // устанавливаем размер 128x128
+                            .circleCrop()
+                            .override(128, 128)
                             .into(binding.ivUploadPfp)
                         Toast.makeText(this@SignUpActivity3, "Profile photo selected", Toast.LENGTH_SHORT).show()
                     }
@@ -162,7 +147,6 @@ class SignUpActivity3 : AppCompatActivity() {
                     }
                 }
 
-                // Store the image path temporarily
                 when (imageType) {
                     "profile" -> preferences.edit().putString("temp_profile_path", imagePath).apply()
                     "license" -> preferences.edit().putString("temp_license_path", imagePath).apply()
@@ -175,7 +159,7 @@ class SignUpActivity3 : AppCompatActivity() {
         }
     }
 
-    private suspend fun saveImageToInternalStorage(uri: Uri, imageType: String): String {
+    private fun saveImageToInternalStorage(uri: Uri, imageType: String): String {
         return try {
             val inputStream = contentResolver.openInputStream(uri)
             val timeStamp = System.currentTimeMillis()
@@ -220,12 +204,12 @@ class SignUpActivity3 : AppCompatActivity() {
         val issueDate = binding.etIssueDate.text.toString()
 
         if (licenseNumber.isEmpty()) {
-            binding.etLicenseNumber.error = "Введите номер удостоверения"
+            binding.etLicenseNumber.error = getString(R.string.driver_license)
             return false
         }
 
         if (issueDate.isEmpty()) {
-            binding.etIssueDate.error = "Введите дату выдачи"
+            binding.etIssueDate.error = getString(R.string.enter_date_of_issue)
             return false
         }
 
@@ -235,10 +219,8 @@ class SignUpActivity3 : AppCompatActivity() {
     private fun completeRegistration() {
         lifecycleScope.launch {
             val result = performRegistration()
-
             result.fold(
                 onSuccess = { userId ->
-                    // Save images to database after successful registration
                     saveUserImages(userId)
                     AuthManager.saveCurrentUserId(this@SignUpActivity3, userId)
                     navigateToCongratulations()
@@ -262,8 +244,8 @@ class SignUpActivity3 : AppCompatActivity() {
             birthDate = intent.getStringExtra("birthDate") ?: "",
             gender = intent.getStringExtra("gender") ?: "",
             middleName = intent.getStringExtra("middleName"),
-            driverLicense = binding.etLicenseNumber.text.toString(), // FIX: use binding
-            licenseIssueDate = binding.etIssueDate.text.toString()   // FIX: use binding
+            driverLicense = binding.etLicenseNumber.text.toString(),
+            licenseIssueDate = binding.etIssueDate.text.toString()
         )
     }
 
@@ -283,7 +265,7 @@ class SignUpActivity3 : AppCompatActivity() {
         passportPath?.let { path ->
             AuthManager.updatePassportImage(userId, path)
         }
-        // Clear temporary preferences
+
         preferences.edit { clear() }
     }
 

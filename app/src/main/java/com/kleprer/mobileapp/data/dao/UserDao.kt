@@ -11,12 +11,6 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUser(user: UserModel): Long
 
-    @Update
-    suspend fun updateUser(user: UserModel)
-
-    @Delete
-    suspend fun deleteUser(user: UserModel)
-
     // поиск пользователей
     @Query("SELECT * FROM users WHERE id = :userId")
     suspend fun getUserById(userId: Long): UserModel?
@@ -45,7 +39,7 @@ interface UserDao {
     @Query("SELECT COUNT(*) FROM users WHERE email = :email")
     suspend fun checkEmailExists(email: String): Int
 
-    // ДОБАВЛЕНО: Обновление путей к изображениям
+    // обновление путей к изображениям
     @Query("UPDATE users SET profileImagePath = :profilePath, updatedAt = :timestamp WHERE id = :userId")
     suspend fun updateProfileImage(userId: Long, profilePath: String, timestamp: Long)
 
