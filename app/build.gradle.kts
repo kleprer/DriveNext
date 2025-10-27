@@ -20,6 +20,7 @@ android {
     }
 
     buildFeatures {
+        compose = true
         dataBinding = true
         viewBinding = true
     }
@@ -43,6 +44,10 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.activity.compose)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
