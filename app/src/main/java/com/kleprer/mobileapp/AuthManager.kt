@@ -19,7 +19,7 @@ object AuthManager {
     // инициализация
     fun init(context: Context) {
         val database = AppDatabase.getInstance(context)
-        userRepository = UserRepo(database.userDao())
+        userRepository = UserRepo(database.userDao(), context)
     }
 
     // регистрация

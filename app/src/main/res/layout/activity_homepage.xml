@@ -44,7 +44,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_bar" />
 
-    <?xml version="1.0" encoding="utf-8"?>
 
 
     <androidx.cardview.widget.CardView
