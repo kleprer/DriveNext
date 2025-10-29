@@ -7,4 +7,7 @@
     <color name="new_gray">#D0D5DD</color>
     <color name="error_red">#FF0000</color>
     <color name="old_gray">#ADB5BD</color>
+    <color name="background_light">#FFFFFF</color>
+    <color name="surface_light">#F5F5F5</color>
+    <color name="primary_dark">#BB86FC</color>
 </resources>
