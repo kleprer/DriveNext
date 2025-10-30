@@ -67,4 +67,8 @@
     <string name="account_deactivated">Аккаунт деактивирован</string>
     <string name="invalid_password">Неверный пароль</string>
     <string name="user_not_found">Пользователь не найден</string>
+    <string name="price_per_day_format">%dр в день</string>
+    <string name="load_data_error">Не удалось загрузить данные. Попробуйте снова.</string>
+    <string name="search_error">Не удалось выполнить поиск. Попробуйте снова.</string>
+    <string name="no_cars_found">Автомобили марки %s не найдены</string>
 </resources>
