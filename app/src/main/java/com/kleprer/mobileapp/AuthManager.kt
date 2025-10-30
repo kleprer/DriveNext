@@ -1,7 +1,7 @@
 package com.kleprer.mobileapp
 
-import android.annotation.SuppressLint
 import android.content.Context
+import android.content.SharedPreferences
 import com.kleprer.mobileapp.data.db.AppDatabase
 import com.kleprer.mobileapp.data.repo.UserRepo
 import kotlinx.coroutines.Dispatchers
@@ -11,12 +11,15 @@ import com.kleprer.mobileapp.data.models.UserModel
 
 object AuthManager {
     private lateinit var userRepository: UserRepo
+    private var sharedPreferences: SharedPreferences? = null
 
     private const val PREFS_NAME = "auth_preferences"
     private const val KEY_CURRENT_USER_ID = "current_user_id"
     private const val KEY_IS_FIRST_LAUNCH = "is_first_launch"
+    private const val KEY_USER_LOGGED_IN = "user_logged_in"
+    private const val KEY_ACCESS_TOKEN = "access_token"
+    private const val KEY_REFRESH_TOKEN = "refresh_token"
 
-    // инициализация
     fun init(context: Context) {
         val database = AppDatabase.getInstance(context)
         userRepository = UserRepo(database.userDao(), context)
@@ -73,6 +76,38 @@ object AuthManager {
 
     suspend fun getCurrentUser(): UserModel? = withContext(Dispatchers.IO) {
         userRepository.getCurrentUser()
+    }
+
+    fun logout() {
+        sharedPreferences?.edit()?.apply {
+            remove(KEY_USER_LOGGED_IN)
+            remove(KEY_ACCESS_TOKEN)
+            remove(KEY_REFRESH_TOKEN)
+            remove(KEY_CURRENT_USER_ID)
+            apply()
+        }
+    }
+
+    fun saveAuthData(accessToken: String, refreshToken: String, userId: Long) {
+        sharedPreferences?.edit()?.apply {
+            putBoolean(KEY_USER_LOGGED_IN, true)
+            putString(KEY_ACCESS_TOKEN, accessToken)
+            putString(KEY_REFRESH_TOKEN, refreshToken)
+            putLong(KEY_CURRENT_USER_ID, userId)
+            apply()
+        }
+    }
+
+    fun getAccessToken(): String? {
+        return sharedPreferences?.getString(KEY_ACCESS_TOKEN, null)
+    }
+
+    fun getCurrentUserId(): Long {
+        return sharedPreferences?.getLong(KEY_CURRENT_USER_ID, -1L) ?: -1L
+    }
+
+    fun isUserLoggedInSync(): Boolean {
+        return sharedPreferences?.getBoolean(KEY_USER_LOGGED_IN, false) ?: false
     }
 
     // SharedPreferences методы

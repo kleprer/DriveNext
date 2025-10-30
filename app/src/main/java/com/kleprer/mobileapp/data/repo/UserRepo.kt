@@ -54,16 +54,7 @@ class UserRepo(
             Result.failure(Exception("Ошибка входа: ${e.message}"))
         }
     }
-
-    // выход
-    suspend fun logoutUser(userId: Long): Result<Boolean> {
-        return try {
-            userDao.logoutUser(userId, System.currentTimeMillis())
-            Result.success(true)
-        } catch (e: Exception) {
-            Result.failure(Exception(context.getString(R.string.sign_up_error, e.message)))
-        }
-    }
+    
 
     // получение текущего пользователя
     suspend fun getCurrentUser(): UserModel? = userDao.getActiveUser()
@@ -93,6 +84,24 @@ class UserRepo(
         return try {
             val timestamp = System.currentTimeMillis()
             userDao.updatePassportImage(userId, imagePath, timestamp)
+            Result.success(true)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    suspend fun updateUser(user: UserModel): Result<Boolean> {
+        return try {
+            userDao.insertUser(user) // Используем insert с replace стратегией
+            Result.success(true)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    suspend fun updateUserPassword(user: UserModel): Result<Boolean> {
+        return try {
+            userDao.insertUser(user) // Используем insert с replace стратегией
             Result.success(true)
         } catch (e: Exception) {
             Result.failure(e)
