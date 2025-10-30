@@ -61,7 +61,7 @@ class UserRepo(
             userDao.logoutUser(userId, System.currentTimeMillis())
             Result.success(true)
         } catch (e: Exception) {
-            Result.failure(Exception(context.getString(R.string.sign_up_error, e.message)))
+            Result.failure(Exception("Ошибка выхода: ${e.message}"))
         }
     }
 
@@ -98,6 +98,8 @@ class UserRepo(
             Result.failure(e)
         }
     }
+
+
 
     // генерация токенов
     private fun generateToken(email: String): String = "app_token_${email.hashCode()}_${System.currentTimeMillis()}"

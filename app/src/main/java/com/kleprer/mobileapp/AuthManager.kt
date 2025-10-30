@@ -66,6 +66,20 @@ object AuthManager {
             userRepository.loginUser(email, password)
         }
 
+    // выход из системы
+    suspend fun logoutUser(context: Context): Result<Boolean> = withContext(Dispatchers.IO) {
+        try {
+            val currentUser = userRepository.getCurrentUser()
+            currentUser?.let { user ->
+                userRepository.logoutUser(user.id)
+                clearCurrentUserId(context)
+            }
+            Result.success(true)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
     // проверка авторизации
     suspend fun isUserLoggedIn(): Boolean = withContext(Dispatchers.IO) {
         userRepository.getCurrentUser() != null
@@ -75,10 +89,29 @@ object AuthManager {
         userRepository.getCurrentUser()
     }
 
+    // Получение ID текущего пользователя
+    suspend fun getCurrentUserId(): Long? = withContext(Dispatchers.IO) {
+        userRepository.getCurrentUser()?.id
+    }
+
     // SharedPreferences методы
     fun saveCurrentUserId(context: Context, userId: Long) {
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
             .edit { putLong(KEY_CURRENT_USER_ID, userId) }
+    }
+
+    fun getSavedCurrentUserId(context: Context): Long? {
+        val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        return if (prefs.contains(KEY_CURRENT_USER_ID)) {
+            prefs.getLong(KEY_CURRENT_USER_ID, -1L).takeIf { it != -1L }
+        } else {
+            null
+        }
+    }
+
+    private fun clearCurrentUserId(context: Context) {
+        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            .edit { remove(KEY_CURRENT_USER_ID) }
     }
 
     fun isFirstLaunch(context: Context): Boolean {

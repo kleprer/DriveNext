@@ -120,18 +120,17 @@
 
     <!-- Bottom Navigation -->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="49dp"
+        android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="0dp"
         app:cardElevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:paddingTop="16dp">
-
+        >
         <LinearLayout
+            android:paddingTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal"
@@ -144,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:contentDescription="home"
-                android:src="@drawable/ic_home_active" />
+                android:src="@drawable/ic_home" />
 
             <ImageView
                 android:id="@+id/iv_bookmark"
@@ -162,7 +161,7 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="50dp"
                 android:contentDescription="settings"
-                android:src="@drawable/ic_settings" />
+                android:src="@drawable/ic_settings_active" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
