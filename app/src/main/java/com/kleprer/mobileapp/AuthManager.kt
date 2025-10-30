@@ -22,8 +22,7 @@ object AuthManager {
 
     fun init(context: Context) {
         val database = AppDatabase.getInstance(context)
-        userRepository = UserRepo(database.userDao(), context) // ← ДОБАВЬТЕ CONTEXT
-        sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        userRepository = UserRepo(database.userDao(), context)
     }
 
     // регистрация

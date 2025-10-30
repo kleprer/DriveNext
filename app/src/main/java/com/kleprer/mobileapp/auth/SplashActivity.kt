@@ -12,6 +12,7 @@ import com.kleprer.mobileapp.onboarding.GettingStartedActivity
 import kotlinx.coroutines.launch
 import androidx.lifecycle.lifecycleScope
 import com.kleprer.mobileapp.AuthManager
+import com.kleprer.mobileapp.home.HomeActivity
 import kotlinx.coroutines.delay
 
 @SuppressLint("CustomSplashScreen")
@@ -30,6 +31,7 @@ class SplashActivity : AppCompatActivity() {
 
     }
 
+
     private suspend fun checkWhereToGo() {
         val intent = when {
             AuthManager.isFirstLaunch(this) -> {
@@ -37,7 +39,7 @@ class SplashActivity : AppCompatActivity() {
                 Intent(this, GettingStartedActivity::class.java)
             }
             AuthManager.isUserLoggedIn() -> {
-                Intent(this, MainActivity::class.java)
+                Intent(this, HomeActivity::class.java)
             }
             else -> {
                 Intent(this, GettingStartedActivity::class.java)
@@ -45,5 +47,6 @@ class SplashActivity : AppCompatActivity() {
         }
 
         startActivity(intent)
+        finish() // Finish splash activity
     }
 }

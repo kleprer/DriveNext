@@ -52,7 +52,11 @@
         <activity android:name="com.kleprer.mobileapp.auth.CongratulationsActivity" />
         <activity android:name="com.kleprer.mobileapp.main.MainActivity" />
         <activity android:name="com.kleprer.mobileapp.network.NoConnectionActivity" />
-
+        <activity android:name="com.kleprer.mobileapp.home.HomeActivity" android:exported="false" />
+        <activity android:name="com.kleprer.mobileapp.home.SettingsActivity" android:exported="false" />
+        <activity android:name="com.kleprer.mobileapp.home.CarDetailsActivity" android:exported="false" />
+        <activity android:name="com.kleprer.mobileapp.home.BookmarksActivity" android:exported="false" />
+        <activity android:name="com.kleprer.mobileapp.home.BookingDetailsActivity" android:exported="false" />
 
     </application>
 

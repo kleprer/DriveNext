@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.kleprer.mobileapp.AuthManager
 import com.kleprer.mobileapp.databinding.ActivityLoginBinding
+import com.kleprer.mobileapp.home.HomeActivity
 import com.kleprer.mobileapp.main.MainActivity
 import kotlinx.coroutines.launch
 
@@ -67,6 +68,7 @@ class LoginActivity : AppCompatActivity() {
         return true
     }
 
+
     private fun performLogin() {
         val email = binding.etEmail.text.toString()
         val password = binding.etPassword.text.toString()
@@ -76,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
             result.fold(
                 onSuccess = { user ->
                     AuthManager.saveCurrentUserId(this@LoginActivity, user.id)
-                    navigateToMain()
+                    navigateToHomepage()
                 },
                 onFailure = { exception ->
                     showError(getString(R.string.login_error, exception.message))
@@ -84,8 +86,10 @@ class LoginActivity : AppCompatActivity() {
             )
         }
     }
-    private fun navigateToMain() {
-        startActivity(Intent(this, MainActivity::class.java))
+
+    private fun navigateToHomepage() {
+        startActivity(Intent(this, HomeActivity::class.java))
+        finish() // Finish login activity so user can't go back
     }
 
     private fun showError(message: String) {
