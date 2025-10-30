@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.kleprer.mobileapp.main.MainActivity
 import com.kleprer.mobileapp.R
 import com.kleprer.mobileapp.databinding.ActivityOnBoardingBinding
+import com.kleprer.mobileapp.home.HomeActivity
 
 class OnBoardingActivity : AppCompatActivity() {
 
@@ -39,7 +40,7 @@ class OnBoardingActivity : AppCompatActivity() {
         }
 
         binding.tvSkip.setOnClickListener {
-            navigateToMainActivity()
+            navigateToHome()
         }
     }
 
@@ -49,7 +50,7 @@ class OnBoardingActivity : AppCompatActivity() {
             animateSlideLeft()
             updatePageContent()
         } else {
-            navigateToMainActivity()
+            navigateToHome()
         }
     }
 
@@ -121,8 +122,9 @@ class OnBoardingActivity : AppCompatActivity() {
         binding.ivOnBoardingImage.setImageResource(imageResId)
     }
 
-    private fun navigateToMainActivity() {
-        val intent = Intent(this, MainActivity::class.java)
+
+    private fun navigateToHome() {
+        val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
         finish()
     }
