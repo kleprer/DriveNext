@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,7 @@
 
         <TextView
             android:id="@+id/tv_search_results"
-            android:layout_width="318dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/montserrat_semibold"
@@ -35,202 +35,92 @@
             android:text="Результаты поиска"
             android:textColor="@color/second_primary"
             android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="248dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="24dp"
-            app:cardCornerRadius="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_search_results"
-            app:strokeColor="@color/primary"
-            app:strokeWidth="2dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="24dp"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintStart_toEndOf="@+id/iv_pfp"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <TextView
-                            android:id="@+id/tv_car_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:lineSpacingExtra="24dp"
-                            android:text="S 500 Sedan"
-                            android:textColor="@color/second_primary"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:id="@+id/tv_car_brand"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:lineSpacingExtra="14dp"
-                            android:text="Mercedes-Benz"
-                            android:textColor="@color/old_gray"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tv_book_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:lineSpacingExtra="14dp"
-                            android:text="2500р в день"
-                            android:textColor="@color/primary"
-                            android:textSize="14sp" />
-
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/gearbox"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/to_profile">
-
-                            <ImageView
-                                android:id="@+id/iv_gearbox"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:contentDescription="bookings"
-                                android:src="@drawable/ic_gearbox"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/tv_gearbox_info"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="6dp"
-                                android:fontFamily="@font/montserrat_regular"
-                                android:lineSpacingExtra="24dp"
-                                android:text="A/T"
-                                android:textColor="@color/second_primary"
-                                android:textSize="14sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/iv_gearbox"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <ImageView
-                                android:id="@+id/iv_fuel"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="16dp"
-                                android:contentDescription="bookings"
-                                android:src="@drawable/ic_fuel"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/tv_gearbox_info"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/tv_fuel_info"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="6dp"
-                                android:fontFamily="@font/montserrat_regular"
-                                android:lineSpacingExtra="24dp"
-                                android:text="Бензин"
-                                android:textColor="@color/second_primary"
-                                android:textSize="14sp"
-                                app:layout_constraintStart_toEndOf="@+id/iv_fuel"
-                                app:layout_constraintTop_toTopOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                    </LinearLayout>
-
-                    <ImageView
-                        android:id="@+id/carImage"
-                        android:layout_width="176dp"
-                        android:layout_height="136dp"
-                        android:layout_marginStart="16dp"
-                        android:src="@drawable/ic_car_img" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start|end"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <android.widget.Button
-                        android:id="@+id/btn_book"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:background="@drawable/shape_button_footer"
-                        android:backgroundTint="#2A1246"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:paddingStart="14dp"
-                        android:paddingTop="14dp"
-                        android:paddingEnd="14dp"
-                        android:paddingBottom="14dp"
-                        android:text="Забронировать"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
-
-                    <android.widget.Button
-                        android:id="@+id/btn_details"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="14dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/shape_button_blank_cornered"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:paddingStart="14dp"
-                        android:paddingTop="14dp"
-                        android:paddingEnd="14dp"
-                        android:paddingBottom="14dp"
-                        android:text="Детали"
-                        android:textAllCaps="false"
-                        android:textColor="#344054"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Добавляем RecyclerView для списка автомобилей -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/carsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar" />
+
+    <!-- Состояние загрузки -->
+    <ProgressBar
+        android:id="@+id/loadingProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar" />
+
+    <!-- Состояние ошибки -->
+    <LinearLayout
+        android:id="@+id/errorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <TextView
+            android:id="@+id/tvErrorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Не удалось загрузить результаты"
+            android:textColor="@color/second_primary"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Попробовать снова" />
+
+    </LinearLayout>
+
+    <!-- Состояние пустого результата -->
+    <LinearLayout
+        android:id="@+id/emptyStateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Ничего не найдено"
+            android:textColor="@color/second_primary"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <!-- Bottom Navigation -->
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="49dp"
         app:cardBackgroundColor="@color/white"
@@ -240,6 +130,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:paddingTop="16dp">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -275,4 +166,5 @@
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
